@@ -1,53 +1,53 @@
 # View Wireframes
 
 ## New User
-[new-user]
+![new-user]
 
 ## New Session
-[new-session]
+![new-session]
 
 ## Current User Profile Page
-[current-user-page]
+![current-user-page]
 
 ## Current User Board Page
-[current-user-board]
+![current-user-board]
 
 ## Close up of a Pin from the Board Page
-[close-up-of-pin]
+![close-up-of-pin]
 
 ## Other User Profile Page
-[other-user-page]
+![other-user-page]
 
 ## Other User Board Page
-[other-user-board]
+![other-user-board]
 
 ## Pin Show Page - Large
-[pin-show-page]
+![pin-show-page]
 
 ## Create New Pin Icon / Menu
-[new-pin-icon]
+![new-pin-icon]
 
-[new-pin-menu]
+![new-pin-menu]
 
 ## Create New Board Form
-[create-new-board]
+![create-new-board]
 
 ## Pin from Other Website Forms
-[choose-url]
+![choose-url]
 
-[choose-image]
+![choose-image]
 
 ## Upload Image for Pin
-[upload-image]
+![upload-image]
 
 ## Save Pin (after image selected)
-[save-pin]
+![save-pin]
 
 ## Search Bar
-[search-bar]
+![search-bar]
 
 ## Feed View/HomePage
-[feed-view]
+![feed-view]
 
 
 [new-user]:	./wireframes/0_sign_up_page.png
