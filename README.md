@@ -2,21 +2,21 @@
 
 [Heroku link][heroku]
 
-[heroku]: http://#
+[heroku]: https://pinly.herokuapp.com/
 
 ## Minimum Viable Product
-Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
+Pinly is a clone of Pinterest built on Rails and Backbone. Users can:
 
-- [x] Create accounts
-- [x] Create sessions (log in)
-- [x] Create blogs
-- [x] Create blog posts
-- [x] Tag blog posts
-- [x] View blogs and posts
-- [x] Subscribe to blogs
-- [x] View a feed of subscribed blogs
-- [x] Search for blogs by title
-- [x] Search for posts by tag
+- [ ] Create accounts
+- [ ] Create sessions (log in)
+- [ ] Create boards (collections of visual bookmarks)
+- [ ] Create pins (visual bookmarks)
+- [ ] View boards and pins (your own and made by others)
+- [ ] Subscribe/Unsubscribe to boards ("follow")
+- [ ] View a feed of pins drawn from subscribed boards
+- [ ] Re-pin someone else's pin to a personal board
+- [ ] "Like" a pin
+- [ ] Search for pins through key words
 
 ## Design Docs
 * [View Wireframes][views]
@@ -27,58 +27,120 @@ Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Basic Blogs and Posts (~1 day)
-I will implement user authentication in Rails based on the practices learned at
-App Academy. By the end of this phase, users will be able to create blogs and
-posts using simple text forms in Rails views. The most important part of this
-phase will be pushing the app to Heroku and ensuring that everything works
-before moving on to phase 2.
+### Phase 1: User Authentication, Basic Boards and Pins (~2 days)
+* Implement user authentication in Rails based on the practices learned at App Academy
+
+* Implement Boards (full CRUD functionality) using barebones Rails views.
+
+* Implement Pins (full CRUD functionality) using barebones Rails views.
+	* Leave out the ability to load images at this stage!
+
+* Implement Likes for Pins (Create, Destroy); test in Rails view.
+
+* Ensure Pin created by user A can be *repinned* by user B
+
+* Create ability to "follow" other boards. Use rails user-show-page to output list of "followed boards."
+
+* Deploy to Heroku and ensure that everything continues to work.
+
+* Integrate `filepicker` to allow image uploads; images will be used on individual pins and for user avatars.  Images should be uploaded to Amazon S3 server.  Test in rails view to ensure proper implementation.  Redeploy to Heroku.  This will be the most challenging aspect of the first two days.
 
 [Details][phase-one]
 
-### Phase 2: JSON API and First Backbone Views (~2 days)
-I will add API routes to serve blog and post data as JSON, then add Backbone
-models and collections that fetch data from those routes. By the end of this
-phase, the existing Rails views will have been ported over to Backbone.
+### Phase 2: JSON API and Port to Backbone Views (~2 days)
+
+* Refactor Views into JSON API using jBuilder
+	* ensure data is appropriately nested!
+
+* Build underlying Backbone infrastructure in order to accomodate composite views, swap-views, etc.
+
+* Build models, collections, and views in Backbone
+
+* Build root static page and navbar
+
+* Basic styling on login and sign up Rails views
+
+* Begin initial styling on Backbone views using CSS. Use jQuery plugin `masonry` or `freewall` in order to display pin-show views in grid like structure
+
+* At the end of this phase, I expect to see:
+
+	* navbar with Brand and Sign Out button
+
+	* User profile pages which feature an avatar and links to boards
+	
+		* boards of other users should have a "follow" button which triggers a follow; should visually show the change
+
+	* Board view which features the title of the Board, the creator's username
+
+	* Hover over pins that we did not create and we should see a Like icon
+
+		* clicking should trigger a like; should visually show the change
 
 [Details][phase-two]
 
-### Phase 3: Editing and Displaying Posts (~2 days)
-I plan to use third-party libraries to add functionality to the `PostForm` and
-`PostShow` views in this phase. First I'll need to add a Markdown editor to the
-`PostForm`, and make sure that the Markdown is properly escaped and formatted in
-the `PostShow` view. I also plan to integrate Filepicker for file upload so
-users can add images to blog posts.
+### Phase 3: Creating/Editing Boards, Uploading Pins, Repinning Pins, and Pinning from third party site (~2 days)
+
+* Create fixed (+) icon button in bottom left of screen with popout view containing pinning options
+
+* Create Form Views (Modals) for creating a new Board and for Uploading an image and creating a new pin
+
+* Create hover "Pin" button which appears over other users' pins
+
+* Create Form in which user can input a website address, images are scraped, and the user is asked which he or she would like to pin.  ** This seems tricky and I anticipate it will take some time ** 
+
+* Ensure Forms have appropriate submit, cancel buttons -- as well as cancel through "Blur"
 
 [Details][phase-three]
 
-### Phase 4: User Feeds (~1-2 days)
-I'll start by adding a `feed` route that uses the `current_user`'s
-`subscribed_blogs` association to serve a list of blog posts ordered
-chronologically. On the Backbone side, I'll make a `FeedPosts` collection that
-fetches from the new route, then create a `FeedShow` view that uses the new
-collection. Ultimately, this will be the page users see after logging in.
+### Phase 4: User Feeds (~1 days)
+
+* Add user "feed" route that uses current user's `followed` association to serve a list of Pins in reverse-chronological order.
+
+* Create FeedPins collection which fetches from the new route
+
+* Create a FeedShow view that uses the new collection
+
+* Ensure this is the first page that Users see
 
 [Details][phase-four]
 
-### Phase 5: Searching for Blogs and Posts (~2 days)
-I'll need a `search` route that accepts a query in the params. The controller
-action will run two queries: one to find blogs where the `title` matches
-the search term, and another to find posts where one of their associated `Tag`s
-matches the search term. In Backbone, I plan to implement a `SearchResults` view
-that will display matching blogs in one column and matching posts in another.
+### Phase 5: Searching for Pins (~1 days)
+
+* navbar will need a search bar which takes text input, parses it into individual words
+
+* I'll need a search route which accepts a query in the params
+
+* the controller will have to query the database to find all pins who's description match the query-string words
+
+* the user's feed should be populated with the search results
+
+* visually the search bar should parse each word individually, color coat it, and add a cancel button -- much like the real pinterest
 
 [Details][phase-five]
 
-### Bonus Features (TBD)
-- [ ] Activity history for posts (e.g. likes, reblogs, taggings)
-- [x] Custom urls for blogs
-- [x] 'Like' button and counter for `PostShow` view
-- [x] Pagination of the `FeedShow`, `SearchShow`, and `BlogShow` views
-- [ ] Post types with distinct views (image posts, quote posts, etc)
-- [ ] Reblogging
-- [ ] Support for multiple open sessions
-- [x] User avatars
+### Phase 6: More Styling and Seed Material
+
+* CSS
+
+* jQuery Animations
+
+* Unique Seed Data
+
+* This is to ensure I don't go too far without a minimum viable product
+
+### High Priority Bonus Features
+- [ ] friendships and private messages, notifications
+	* create a UserFriendship model 
+	* generate user_friendship controller to create new pending user_friendships
+	* user can accept (change state to "accepted") or decline (destroy userfriendship)
+	* users will be able to send messages directly to other users if user_friendship.state == "accepted"
+
+- [ ] Ability to select geographic location when creating a pin; map view for boards with pins representing the locations
+
+### Low Priority Bonus Features
+- [ ] dragable boards on your own user page
+- [ ] Custom urls for users and boards
+
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md

@@ -4,21 +4,20 @@
 ### Models
 
 ### Controllers
-Api::BlogsController (search)
-Api::PostsController (search)
+Api::BoardPinsController (search)
 
 ### Views
+* add search bar to navbar
 
 ## Backbone
 ### Models
 
 ### Collections
-* SearchBlogs
-* SearchPosts
+* SearchPins
 
 ### Views
-* BlogSearchItem
-* SearchShow (composite view, contains BlogSearchItem and PostShow subviews)
+* SearchWord
+* SearchShow (composite view, contains PinCardShow subviews)
 
 ## Gems/Libraries
 

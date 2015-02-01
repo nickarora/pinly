@@ -4,18 +4,18 @@
 ### Models
 
 ### Controllers
-Api::PostsController (feed)
+Api::BoardPinsController (feed)
 
 ### Views
-posts/feed.json.jbuilder
+boardpins/feed.json.jbuilder
 
 ## Backbone
 ### Models
 
 ### Collections
-* FeedPosts
+* FeedPins
 
 ### Views
-* FeedShow (composite view, contains PostShow subviews)
+* FeedShow (composite view, contains PinCardShow subviews)
 
 ## Gems/Libraries

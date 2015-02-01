@@ -1,4 +1,4 @@
-# Phase 3: Editing and Displaying Posts
+# Phase 3: Creating/Editing Boards, Uploading Pins, Repinning Pins, and Pinning from third party site
 
 ## Rails
 ### Models
@@ -6,6 +6,7 @@
 ### Controllers
 
 ### Views
+* update rails view to now have (+) icon on all pages
 
 ## Backbone
 ### Models
@@ -13,9 +14,12 @@
 ### Collections
 
 ### Views
-* PostForm
+* AddPinMenu
+* CreateBoardForm
+* UploadPinForm
+* InputUrlForm
+* SelectUrlImageForm
+* SaveNewPinForm
+* PinCardShow --> update to now have hover button "Pin!"
 
 ## Gems/Libraries
-* Filepicker
-* Markdown-js
-* Bootstrap Markdown
