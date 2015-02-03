@@ -1,0 +1,29 @@
+<h3>Log In</h3>
+
+<form action="<%= session_url %>" method="post" class="col-xs-6">
+
+  <input type="hidden" name="authenticity_token"
+  value="<%=form_authenticity_token%>" >
+
+  <div class="form-group">
+  <label for="username">Username:</label>
+  <input  class="form-control"
+          type="text"
+          id="username"
+          name="session[username]"
+          value="<%=@user.username%>">
+  </div>
+
+  <div class="form-group">
+  <label for="password">Password:</label>
+  <input  class="form-control"
+          type="password"
+          id="password"
+          name="session[password]">
+  </div>
+
+  <div class="form-group">
+    <button name="submit" class="btn btn-primary">Log In</button>
+  </div>
+
+</form>
