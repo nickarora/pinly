@@ -1,0 +1,17 @@
+<form>
+	<div class='form-group'>
+		<label>Title</label>
+		<input type='text' name='board[title]' class="form-control"
+		 value="<%= board.escape('title') %>">
+	</div>
+
+	<div class='form-group'>
+		<label>Description</label>
+		<textarea name='board[description]' class="form-control"
+		><%= board.escape('description') %></textarea>
+	</div>
+
+	<div class='form-group'>
+		<button class='btn btn-primary'>Save Board</button>
+	</div>
+</form>

@@ -19,8 +19,12 @@
           class='dropdown-toggle navbar-btn btn btn-primary'
           data-toggle='dropdown'><span class='glyphicon glyphicon-plus'></span>
         </button>
+        <ul class="dropdown-menu">
+          <li><a href="#/boards/new">Create a New Board</a></li>
+        </ul>
       </li>
-      <li><%= button_to "Sign out", session_url, method: :delete, class: "btn btn-primary navbar-btn" %></li>
+      <li><%= link_to "#{current_user.fname.capitalize}", "#/users/#{current_user.id}" %></li>
+      <li><%= button_to "Sign Out", session_url, method: :delete, class: "btn btn-primary navbar-btn"%></li>
     <% else %>
       <li><%= link_to "Log in", new_session_url %></li>
       <li><%= link_to "Sign up", new_user_url %></li>

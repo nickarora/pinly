@@ -1,0 +1,23 @@
+<form>
+	<div class='form-group'>
+		<label>First Name</label>
+		<input type='text' name='user[fname]' class="form-control"
+		 value="<%= user.escape('fname') %>">
+	</div>
+
+	<div class='form-group'>
+		<label>Last Name</label>
+		<input type='text' name='user[lname]' class="form-control"
+		 value="<%= user.escape('lname') %>">
+	</div>
+
+	<div class='form-group'>
+		<label>Description</label>
+		<textarea name='user[description]' class="form-control"
+		><%= user.escape('description') %></textarea>
+	</div>
+
+	<div class='form-group'>
+		<button class='btn btn-primary'>Save</button>
+	</div>
+</form>

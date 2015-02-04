@@ -1,0 +1,29 @@
+.users-show h3 {
+	text-transform: capitalize;
+}
+
+.boards-item {
+	float: left;
+	margin-top: 10px;
+	margin-right: 10px;
+	padding: 10px;
+	width: 250px;
+	height: 250px;
+	background-color: #cdcdcd;
+
+	text-transform: uppercase;
+	letter-spacing: -1px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #BD362F;
+	line-height: 1em;
+}
+
+.boards-item p {
+	width: 150px;
+}
+
+.boards-item button {
+	float: right;
+	margin-left: 2px;
+}

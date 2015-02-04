@@ -1,0 +1,10 @@
+<div class="avatar"></div>
+<div class="user-controls">
+	<% if (logged_in) { %>
+		<button class='btn btn-danger edit-profile'>Edit Profie</button>
+	<% } %>
+</div>
+
+<h3> <%= user.escape('fname') %> <%= user.escape('lname') %> </h3>
+<p>  <%= user.escape('description') %> </p>
+<div class="boards-list"></div>
