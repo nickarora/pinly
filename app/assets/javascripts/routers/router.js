@@ -7,10 +7,11 @@ Pinly.Routers.Router = Backbone.Router.extend({
 	routes: {
 		"": 								'feed',
 		"boards/new": 			'newBoard',
+		"boards/:id": 			'showBoard',
 		"boards/:id/edit": 	'editBoard',
 		"users/:id": 				'showUser',
-		"users/:id/edit": 	'editUser'
-
+		"users/:id/edit": 	'editUser',
+		"pins/new": 				'newPin'
 	},
 
 	feed: function(){
@@ -29,6 +30,16 @@ Pinly.Routers.Router = Backbone.Router.extend({
 		this._swapView(newBoardView);
 	},
 
+	showBoard: function(id){
+		var board = Pinly.Collections.boards.getOrFetch(id);
+
+		var showBoardView = new Pinly.Views.BoardsShow({
+			model: board
+		})
+
+		this._swapView(showBoardView);
+	},
+
 	editBoard: function(id){
 
 		var board = Pinly.Collections.boards.getOrFetch(id);
@@ -43,11 +54,8 @@ Pinly.Routers.Router = Backbone.Router.extend({
 
 	showUser: function(id){
 		var user = Pinly.Collections.users.getOrFetch(id);
-		var collection = user.boards();
-		collection.fetch();
 	
 		var userView = new Pinly.Views.UsersShow({
-			collection: collection,
 			model: user
 		});
 
@@ -62,6 +70,18 @@ Pinly.Routers.Router = Backbone.Router.extend({
 		});
 
 		this._swapView(editView);		
+	},
+
+	newPin: function(){
+		
+		var pin = new Pinly.Models.Pin();
+		
+		var newPinView = new Pinly.Views.PinsForm({
+		  collection: Pinly.Collections.pins,
+		  model: pin
+		});
+		
+		this._swapView(newPinView);
 	},
 
 	_swapView: function(view){

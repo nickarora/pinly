@@ -5,15 +5,16 @@ Pinly.Views.UsersShow = Backbone.CompositeView.extend({
 	className: 'users-show',
 
 	events: {
-		'click .edit-profile': 'editProfile'
+		'click .edit-profile': 	'editProfile'
 	},
 
 	initialize: function(){
-		this.listenTo(this.collection, 'sync', this.render);
-		this.listenTo(this.collection, 'add', this.addBoard);
-		this.listenTo(this.collection, 'remove', this.removeBoard);
 
-		this.collection.each(function(board){
+		this.listenTo(this.model, 'sync', this.render);
+		this.listenTo(this.model.boards(), 'add', this.addBoard);
+		this.listenTo(this.model.boards(), 'remove', this.removeBoard);
+
+		this.model.boards().each(function(board){
 			this.addBoard(board);
 		}, this);
 
@@ -40,9 +41,8 @@ Pinly.Views.UsersShow = Backbone.CompositeView.extend({
 	},
 
 	render: function(){
-		
 		var renderedContent = this.template({
-		  boards: this.collection,
+		  boards: this.model.boards(),
 		  user: this.model,
 		  logged_in: this.model.logged_in
 		});

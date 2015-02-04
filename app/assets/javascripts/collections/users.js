@@ -11,6 +11,7 @@ Pinly.Collections.Users = Backbone.Collection.extend({
 		if (user){
 			user.fetch();
 		} else {
+			debugger
 			user = new Pinly.Models.User({id: id});
 			user.fetch({
 				success: function(){

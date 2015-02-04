@@ -15,5 +15,6 @@ class Board < ActiveRecord::Base
 	validates :title, :user, presence: true
 	belongs_to :user
 	has_many :boardpins, dependent: :destroy
+	has_many :pins, through: :boardpins
 
 end

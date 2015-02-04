@@ -21,7 +21,7 @@ Pinly.Views.BoardsForm = Backbone.CompositeView.extend({
 		this.model.save({}, {
 			success: function(){
 				Pinly.Collections.boards.add(that.model, { merge: true });
-				Backbone.history.navigate("", {trigger: true});
+				Backbone.history.navigate("#/boards/" + that.model.id, {trigger: true});
 			}
 		});
 	},

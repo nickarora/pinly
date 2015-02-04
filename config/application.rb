@@ -9,5 +9,6 @@ Bundler.require(*Rails.groups)
 module Pinly
   class Application < Rails::Application
     config.assets.paths << "#{Rails}/vendor/assets/fonts"
+    config.filepicker_rails.api_key = "Your filepicker.io API Key"
   end
 end

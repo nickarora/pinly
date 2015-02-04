@@ -1,0 +1,14 @@
+<form class='boardpin-form'>
+	<div class='form-group'>
+		<label>Select a Board</label>
+		<select name='boardpin[board_id]' class="form-control">
+			<% boards.each(function(board){ %>
+				<option value="<%= board.escape('id') %>"><%= board.escape('title') %></option>
+			<% })  %>
+		</select>
+	</div>
+
+	<div class='form-group'>
+		<button class='btn btn-primary'>Save</button>
+	</div>
+</form>

@@ -2,8 +2,8 @@ module Api
   class PinsController < ApiController
 
   	def create
-      @pin = Pin.new(pin_params)
-
+      @pin = Pin.new(pins_params)
+      
       if @pin.save
         render json: @pin
       else

@@ -23,8 +23,8 @@ module Api
     end
 
     def show
-    	# @board = Board.includes(:pins).find(params[:id])
     	@board = Board.find(params[:id])
+      @pins = @board.pins
       render :show
     end
 

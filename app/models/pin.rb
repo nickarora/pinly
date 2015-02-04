@@ -13,5 +13,6 @@ class Pin < ActiveRecord::Base
 
 	validates :url, :image_url, presence: true
 	has_many :boardpins, dependent: :destroy
+	has_many :boards, through: :boardpins
 
 end
