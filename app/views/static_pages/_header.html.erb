@@ -13,7 +13,6 @@
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
-    <% if signed_in? %>
       <li id='add-dropdown' class='dropdown'>
         <button 
           class='dropdown-toggle navbar-btn btn btn-primary'
@@ -21,23 +20,12 @@
         </button>
         <ul class="dropdown-menu">
           <li><a href="#/boards/new">Create a New Board</a></li>
-          <li><a href="#/pins/new">Create a New Pin</a></li>
+          <li><a href="#/pins/new">Upload a New Pin</a></li>
         </ul>
       </li>
       <li><%= link_to "#{current_user.fname.capitalize}", "#/users/#{current_user.id}" %></li>
       <li><%= button_to "Sign Out", session_url, method: :delete, class: "btn btn-primary navbar-btn"%></li>
-    <% else %>
-      <li><%= link_to "Log in", new_session_url %></li>
-      <li><%= link_to "Sign up", new_user_url %></li>
-    <% end %>
     </ul>
   </div>
 </div>
 </nav>
-
-<% if flash[:errors] %>
-<div class="alert alert-warning alert-dismissible" role="alert">
-   <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-<%= flash[:errors].join("<br>").html_safe %>
-</div>
-<% end %>

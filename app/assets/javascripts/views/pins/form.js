@@ -6,10 +6,12 @@ Pinly.Views.PinsForm = Backbone.CompositeView.extend({
 	initialize: function(){
 		this.listenTo(this.model, 'sync', this.render);
 		this.first_phase = true;
+		this.filename = null;
 	},
 
 	events: {
-		'submit .pin-form': 'submitHandler'
+		'submit .pin-form': 'submitHandler',
+		'click .upload': 'upload'
 	},
 
 	submitHandler: function(event){
@@ -19,8 +21,7 @@ Pinly.Views.PinsForm = Backbone.CompositeView.extend({
 
 		var $target = $(event.currentTarget)
 		var params = $target.serializeJSON();
-		
-		this.model.set(params);
+		this.model.set(params["pin"]);
 		
 		this.model.save({}, {
 			success: function(){
@@ -43,12 +44,27 @@ Pinly.Views.PinsForm = Backbone.CompositeView.extend({
     this.addSubview('.form-content', view);
 	},
 
+	upload: function (event) {
+		var that = this;
+	  
+	  filepicker.pick({
+	  	mimetype: "image/*"
+	  },
+	  function(blob){
+	  	that.model.set('image_url', blob.url);
+	  	this.$('.upload').removeClass('btn-danger');
+	  	this.$('.upload').addClass('btn-success');
+	  	this.$('.filename').html(blob.filename);
+	  });
+	},
+
 	render: function(){
 
 		if (this.first_phase) {
 			var renderedContent = this.template({
 			  pin: this.model
 			});
+
 			this.$el.html(renderedContent);
 		}
 

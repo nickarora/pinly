@@ -1,16 +1,20 @@
 <div class='form-content'>
 	<form class='pin-form'>
+
+		<script>
+  		filepicker.setKey("AUN04j7hR4GFXVkpz74tdz");
+		</script>
+
 		<div class='form-group'>
 			<label>URL</label>
-			<input type='text' name='pins[url]' class="form-control"
+			<input type='text' name='pin[url]' class="form-control"
 			 value="<%= pin.escape('url') %>">
 		</div>
 
 		<div class='form-group'>
-			<label>Image URL</label>
-			<input type='text' name='pins[image_url]' class="form-control"
-			 value="<%= pin.escape('image_url') %>">
-		</div>
+			<div class='btn btn-danger upload'>Upload Image</div>
+			<div class="filename"></div>
+		 </div>
 
 		<div class='form-group'>
 			<button class='btn btn-primary'>Next</button>
