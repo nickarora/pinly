@@ -5,7 +5,8 @@ Pinly.Views.UsersShow = Backbone.CompositeView.extend({
 	className: 'users-show',
 
 	events: {
-		'click .edit-profile': 	'editProfile'
+		'click .edit-profile': 	'editProfile',
+		'click .sign-out': 'signOut'
 	},
 
 	initialize: function(){
@@ -40,11 +41,23 @@ Pinly.Views.UsersShow = Backbone.CompositeView.extend({
     this.addSubview('.boards-list', view);
 	},
 
+	signOut: function(event){
+		
+		event.preventDefault();
+		$.ajax({
+    	type: 'DELETE',
+    	url: 'session',
+	    success: function(result) {
+	        window.location.href = "";
+	    }
+		});
+
+	},
+
 	render: function(){
 		var renderedContent = this.template({
 		  boards: this.model.boards(),
-		  user: this.model,
-		  logged_in: this.model.logged_in
+		  user: this.model
 		});
 
 		this.$el.html(renderedContent);

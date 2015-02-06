@@ -4,13 +4,11 @@ module Api
     def show
     	@user = User.find(params[:id])
     	@boards = @user.boards
-      @logged_in = (@user == current_user)
       render :show
     end
 
     def edit
       @user = User.find(params[:id])
-      @logged_in = (@user == current_user)
       render :edit
     end
 

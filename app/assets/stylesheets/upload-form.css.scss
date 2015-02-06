@@ -1,0 +1,33 @@
+.file-drop {
+	width: 100%;
+	height: 100px;
+	color: #ccc;
+
+	border-width: 2px;
+  border-style: dashed;
+  border-color: #ccc;
+  
+  line-height: 100px;
+  text-align: center;
+}
+
+.upload-button {
+	width: 150px;	
+	height: 33px;
+}
+
+.btn-uploaded {
+	background-color: #B4EC84;
+	color: #FFF;
+}
+
+.filename {
+	float: right;
+	width: 210px;
+	height: 32px;
+	border-style: solid;
+	border-radius: 2px;
+	border-width: 1px;
+	border-color: #ccc;
+	padding: 6px;
+}

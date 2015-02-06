@@ -1,0 +1,26 @@
+/* styling for individual modals */
+
+.modal-upload {
+	width: 400px;
+	height: 350px;
+}
+
+.modal-board {
+	width: 400px;
+	height: 250px;
+}
+
+/* Centers all Modal Dialog Boxes Dynamically */
+
+.modal-dialog-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+@media (max-width: 767px) {
+  .modal-dialog-center {
+    width: 100%;
+  }
+} 

@@ -1,33 +1,21 @@
 Pinly.Routers.Router = Backbone.Router.extend({
 	
 	initialize: function(options){
-		this.$rootEl = options.$rootEl
+		this.$rootEl = options.$rootEl;
+		this.$headerEl = options.$headerEl;
 	},
 
 	routes: {
 		"": 								'feed',
-		"boards/new": 			'newBoard',
 		"boards/:id": 			'showBoard',
 		"boards/:id/edit": 	'editBoard',
 		"users/:id": 				'showUser',
 		"users/:id/edit": 	'editUser',
-		"pins/new": 				'newPin'
 	},
 
 	feed: function(){
 		var feedView = new Pinly.Views.Feed();
 		this._swapView(feedView);
-	},
-
-	newBoard: function(){
-		var board = new Pinly.Models.Board();
-		
-		var newBoardView = new Pinly.Views.BoardsForm({
-		  collection: Pinly.Collections.boards,
-		  model: board
-		});
-		
-		this._swapView(newBoardView);
 	},
 
 	showBoard: function(id){
@@ -72,21 +60,21 @@ Pinly.Routers.Router = Backbone.Router.extend({
 		this._swapView(editView);		
 	},
 
-	newPin: function(){
-		
-		var pin = new Pinly.Models.Pin();
-		
-		var newPinView = new Pinly.Views.PinsForm({
-		  collection: Pinly.Collections.pins,
-		  model: pin
-		});
-		
-		this._swapView(newPinView);
+	header: function(){
+		var header = new Pinly.Views.Header();
+		return header
+	},
+
+	create: function(){
+		var create = new Pinly.Views.CreateIcon();
+		return create;
 	},
 
 	_swapView: function(view){
 		this._currentView && this._currentView.remove();
 		this._currentView = view;
-		this.$rootEl.html(view.render().$el);
+		this.$headerEl.html(this.header().render().$el);
+		this.$rootEl.append(view.render().$el);
+		this.$rootEl.append(this.create().render().$el);
 	}
 });

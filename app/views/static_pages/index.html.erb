@@ -1,2 +1,12 @@
-<%= render partial: "static_pages/header" %>
+<script>
+	Pinly.CURRENT_USER = { 
+		username: '<%= current_user.try(:username)  %>', 
+		fname: '<%= current_user.try(:fname)  %>',
+		lname: '<%= current_user.try(:lname)  %>',
+		id: '<%= current_user.try(:id) %>'
+	};
+</script>
+
+<div id="header"></div>
 <div id="content" class="container"></div>
+<div id="create-icon"></div>

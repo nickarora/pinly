@@ -1,0 +1,81 @@
+#header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	padding: 5px;
+	background-color: #ccc;
+}
+
+#header .container .search-bar {
+}
+
+#header .container .current-user {
+	width: 200px;
+	text-align: left;
+}
+
+.plus {
+	position: fixed;
+	right: 20px;
+	bottom: 10px;
+
+	background-color: #ccc;
+	
+	width: 40px;
+	height: 40px;
+	line-height: 35px;
+	text-align: center;
+	
+	padding: 0;
+	margin: 0;
+	font-size: 30px;
+	color: black;
+
+	border-radius: 20px;
+}
+
+.plus:hover {
+	background-color: grey;
+}
+
+.drop-up {
+	position: fixed;
+	bottom: 15px;
+	right: 70px;
+	list-style-type: none;
+	border-radius: 8px;
+	box-shadow: 0px 0px 10px #ccc;
+	background-color: white;
+	padding: 0;
+	margin: 0;
+}
+
+.drop-up li.top {
+	border-top: 0px;
+	background-color: #ccc;
+	color: black;
+	text-align: center;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+
+.drop-up li.bottom {
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
+
+.drop-up li {
+	width: 200px;
+	height: 35px;
+	border-top: 1px solid #ccc;
+	color: #ccc;
+	background-color: white;
+	font-size: 12px;
+	line-height: 25px;
+	padding: 6px;
+}
+
+.drop-up li:hover {
+	color: black;
+	background-color: #ccc;
+}

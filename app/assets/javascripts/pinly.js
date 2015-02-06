@@ -5,7 +5,8 @@ window.Pinly = {
   Routers: {},
   initialize: function() {
   	new Pinly.Routers.Router({
-  		$rootEl: $("#content")
+  		$rootEl: $("#content"),
+      $headerEl: $('#header')
   	});
   	Backbone.history.start();
   }

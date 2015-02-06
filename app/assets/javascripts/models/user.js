@@ -2,10 +2,6 @@ Pinly.Models.User = Backbone.Model.extend({
 
 	urlRoot: '/api/users',
 
-	initialize: function(){
-		this.logged_in = false;
-	},
-
 	boards: function () {
     this._boards = this._boards || new Pinly.Collections.Boards();
     return this._boards;
@@ -17,8 +13,6 @@ Pinly.Models.User = Backbone.Model.extend({
       delete payload.boards;
 		}
 		
-		this.logged_in = payload.logged_in;
-
 		return payload;
 	}
 

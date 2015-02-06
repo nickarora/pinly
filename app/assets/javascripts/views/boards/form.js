@@ -18,6 +18,8 @@ Pinly.Views.BoardsForm = Backbone.CompositeView.extend({
 		var params = $target.serializeJSON();
 		
 		this.model.set(params);
+		$('.modal').trigger('close-event');
+		
 		this.model.save({}, {
 			success: function(){
 				Pinly.Collections.boards.add(that.model, { merge: true });

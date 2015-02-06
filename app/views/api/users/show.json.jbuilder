@@ -5,5 +5,3 @@ unless(@boards.empty?)
     json.partial! "api/boards/board", board: board
   end
 end
-
-json.logged_in @logged_in

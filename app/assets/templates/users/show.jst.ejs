@@ -1,7 +1,8 @@
 <div class="avatar"></div>
 <div class="user-controls">
-	<% if (logged_in) { %>
+	<% if (Pinly.CURRENT_USER.username == user.escape('username')) { %>
 		<button class='btn btn-danger edit-profile'>Edit Profie</button>
+		<button class='btn btn-danger sign-out'>Sign Out</button>
 	<% } %>
 </div>
 
