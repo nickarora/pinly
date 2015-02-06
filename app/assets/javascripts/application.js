@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.ui.sortable
 //= require jquery.serializejson
+//= require jquery.embedly
 //= require bootstrap
 //= require underscore
 //= require backbone

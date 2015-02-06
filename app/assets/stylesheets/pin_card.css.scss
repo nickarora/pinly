@@ -10,6 +10,10 @@
 .card .from {
 	padding: 6px;
 	height: 50px;
+	width: 238px;
+	white-space: nowrap;
+  overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .card img {

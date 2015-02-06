@@ -6,7 +6,6 @@ Pinly.Views.PinsForm = Backbone.CompositeView.extend({
 	initialize: function(){
 		this.listenTo(this.model, 'sync', this.render);
 		this.first_phase = true;
-		this.filename = null;
 	},
 
 	events: {
@@ -66,8 +65,17 @@ Pinly.Views.PinsForm = Backbone.CompositeView.extend({
       	that.$('.filename').html(blob.filename);
       	that.$('.upload-button').removeClass('btn-default');
       	that.$('.upload-button').addClass('btn-uploaded');
-      	that.$('.file-drop').css('background-color', '#B4EC84');
-      	that.$('.file-drop').css('color', '#FFF')
+      	that.$('.filename').css('background-color', '#B4EC84');
+      	that.$('.filename').css('color', '#FFF')
+      	that.$('.filename').css('border', '0px')
+      	that.$('.file-drop').css('background-color', '#312c2d');
+      	that.$('.file-drop').empty();
+      	debugger
+
+      // 	var img_url = $.embedly.display.resize(blob.url, {query: {height: 250, width: 365}});
+    		var $img = $('<img>');
+    		$img.attr('src', blob.url);
+    		that.$('.file-drop').html($img);
       },
       function(error) { console.log(error); },
       function(percent){

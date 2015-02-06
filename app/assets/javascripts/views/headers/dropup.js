@@ -4,6 +4,7 @@ Pinly.Views.DropUp = Backbone.CompositeView.extend({
 
 	events: {
 		'click .new-upload-pin': 'newUploadPin',
+		'click .new-website-pin': 'newUrlPin',
 		'click .new-board': 'newBoard'
 	},
 
@@ -19,6 +20,20 @@ Pinly.Views.DropUp = Backbone.CompositeView.extend({
 			content: newPinView,
 			style: 'modal-upload'
 		}).open();
+	},
+
+	newUrlPin: function(){
+		var pin = new Pinly.Models.Pin();
+
+		var urlPinView = new Pinly.Views.UrlPin({
+			model: pin
+		});
+
+		var modal = new Backbone.BootstrapModal({ 
+			content: urlPinView,
+			style: 'modal-url'
+		}).open();
+
 	},
 
 	newBoard: function(){
