@@ -13,9 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.sortable
+//= require jquery.ui.widget
+//= require jquery.iframe-transport
+//= require jquery.fileupload
 //= require jquery.serializejson
+//= require imagesloaded.pkgd.min
+//= require jquery.cloudinary
 //= require jquery.embedly
 //= require bootstrap
+//= require masonry.pkgd.min
 //= require underscore
 //= require backbone
 //= require backbone.bootstrap-modal

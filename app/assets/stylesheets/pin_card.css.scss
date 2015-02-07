@@ -1,23 +1,121 @@
+.pins-list {
+	margin: 0 auto;
+	min-width: 740px;
+	overflow-x: scroll;
+}
+
+.pins-list .masonry {
+  margin: 0 auto;
+}
+
 .card {
 	float: left;
-	width: 250px;
-	margin-right: 10px;
-	margin-top: 10px;
+	width: 235px;
+	margin-bottom: 10px;
 	border-radius: 10px;
-	background-color: #cdcdcd;
+	background-color: #fff;
+	color: #333333;
+	font-size: 10px;
+	box-shadow: 0 1px 2px #999999;
+}
+
+.card .enlarge-pin {
+	  display: inline-block;
+    background: black;
+    border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+    padding: 0;
+}
+
+.card .enlarge-pin img {
+	display: block;
+
+  -webkit-transition: all 0.1s linear;
+     -moz-transition: all 0.1s linear;
+      -ms-transition: all 0.1s linear;
+       -o-transition: all 0.1s linear;
+          transition: all 0.1s linear;
+}
+
+.card .enlarge-pin:hover img {
+	opacity: 0.7;
+}
+
+.red {
+	color: #cb2026;
 }
 
 .card .from {
-	padding: 6px;
-	height: 50px;
-	width: 238px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+	max-height: 40px;
+	font-size: 10px;
+	color: #aaaaaa;
+	width: 235px;
 	white-space: nowrap;
   overflow: hidden;
 	text-overflow: ellipsis;
 }
 
+.card .from a{
+	text-decoration: none;
+	color: #aaaaaa;
+}
+
+.card .pin-description {
+	padding-top: 15px;
+	margin-bottom: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-top: 1px solid #e7e7e7;
+	width: 235px;
+	min-height: 30px;
+	max-height: 100px;
+  overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.card .pinner {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+	min-height: 40px;
+	max-height: 55px;
+	border-top: 1px solid #e7e7e7;
+	width: 235px;
+	white-space: nowrap;
+  overflow: hidden;
+	text-overflow: ellipsis;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.card .pinner:hover {
+	background-color: #f1f1f1;
+}
+
+.card .pinner p {
+	line-height: 1em;
+	margin:0;
+	padding: 0;
+	font-weight: 500;
+}
+
+.card .pinner .pinner-name {
+	color: #999999;
+}
+
+.card .pinner .pinner-board {
+	color: #717171;
+	text-transform: uppercase;
+}
+
 .card img {
-	max-width: 100%;
+	width: 235px;
+	/* 100% */
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 }

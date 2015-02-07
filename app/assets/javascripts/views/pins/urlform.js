@@ -29,6 +29,7 @@ Pinly.Views.UrlPin = Backbone.CompositeView.extend({
     	_.each(images, function(image){
     		var img_url = $.embedly.display.resize(image.url, {query: {height: 200, width: 354}});
     		var $img = $('<img>');
+    		$img.attr('data-og-url', image.url);
     		$img.attr('src', img_url)
     		$container.append($img);
     	})
@@ -39,7 +40,7 @@ Pinly.Views.UrlPin = Backbone.CompositeView.extend({
 
 	savePin: function(event) {
 		var that = this;
-		var img_url = $(event.currentTarget).attr('src');
+		var img_url = $(event.currentTarget).attr('data-og-url');
 		this.model.set('image_url', img_url);
 
 		this.model.save({}, {

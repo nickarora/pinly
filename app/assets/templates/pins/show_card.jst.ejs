@@ -1,9 +1,18 @@
 <div class='card'>
-	<img src=" <%= pin.escape('image_url') %> ">
+	<a href='#' class='enlarge-pin'>
+		<img src=" <%= pin.escape('image_url') %> ">
+	</a>
 	<div class="from">
-		Pinned from: 
+		<i class="fa fa-pinterest red"></i> from 
 		<a href="<%= pin.escape('url') %>">
 			<%= dom %>
 		</a>
+	</div>
+	<div class="pin-description">
+		<%= description %>
+	</div>
+	<div class="pinner">
+		<p class='pinner-name'><%= pinner %></p>
+		<p class='pinner-board'><%= board %></p>
 	</div>
 </div>

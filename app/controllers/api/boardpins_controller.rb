@@ -20,7 +20,7 @@ module Api
   	private
 
   	def boardpin_params
-  		params.require(:boardpin).permit(:board_id, :pin_id);
+  		params.require(:boardpin).permit(:board_id, :pin_id, :description);
   	end
 
   end

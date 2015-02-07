@@ -9,6 +9,12 @@
 	</div>
 
 	<div class='form-group'>
+		<label>Description</label>
+		<textarea name='boardpin[description]' class="form-control"
+		><%= boardpin.escape('description') %></textarea>
+	</div>
+
+	<div class='form-group'>
 		<button class='btn btn-primary'>Save</button>
 	</div>
 </form>

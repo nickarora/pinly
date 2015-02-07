@@ -24,6 +24,8 @@ module Api
 
     def show
     	@board = Board.find(params[:id])
+      @pinner = @board.user.fname.capitalize + " " + @board.user.lname.capitalize
+      @boardpins = @board.boardpins
       @pins = @board.pins
       render :show
     end

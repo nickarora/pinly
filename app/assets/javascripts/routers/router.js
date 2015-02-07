@@ -10,8 +10,7 @@ Pinly.Routers.Router = Backbone.Router.extend({
 		"boards/:id": 			'showBoard',
 		"boards/:id/edit": 	'editBoard',
 		"users/:id": 				'showUser',
-		"users/:id/edit": 	'editUser',
-		"pins/url": 				'newUrlPin' 
+		"users/:id/edit": 	'editUser'
 	},
 
 	feed: function(){
@@ -59,16 +58,6 @@ Pinly.Routers.Router = Backbone.Router.extend({
 		});
 
 		this._swapView(editView);		
-	},
-
-	newUrlPin: function(){
-		var pin = new Pinly.Models.Pin();
-
-		var urlPinView = new Pinly.Views.UrlPin({
-			model: pin
-		});
-
-		// this._swapView(urlPinView);
 	},
 
 	header: function(){

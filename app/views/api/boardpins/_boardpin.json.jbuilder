@@ -1,0 +1,1 @@
+json.(boardpin, :board_id, :pin_id, :description, :created_at, :updated_at)
