@@ -1,5 +1,7 @@
 .pins-list {
 	margin: 0 auto;
+	padding-left: 2%; 
+  padding-right: 2%;
 	min-width: 740px;
 	overflow-x: scroll;
 }
@@ -46,8 +48,8 @@
 }
 
 .card .from {
-	padding-top: 15px;
-	padding-bottom: 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	padding-left: 10px;
 	padding-right: 10px;
 	max-height: 40px;
@@ -65,10 +67,11 @@
 }
 
 .card .pin-description {
-	padding-top: 15px;
-	margin-bottom: 15px;
+	padding-top: 10px;
+	margin-bottom: 10px;
 	padding-left: 10px;
 	padding-right: 10px;
+	font-size: 13px;
 	border-top: 1px solid #e7e7e7;
 	width: 235px;
 	min-height: 30px;
@@ -78,7 +81,7 @@
 }
 
 .card .pinner {
-	padding-top: 15px;
+	padding-top: 10px;
 	padding-bottom: 15px;
 	padding-left: 10px;
 	padding-right: 10px;

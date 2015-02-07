@@ -5,6 +5,7 @@ Pinly.Views.Header = Backbone.CompositeView.extend({
 
 	initialize: function(){
 		 $(window).on("resize", this.updateCSS.bind(this));
+		 this.updateCSS({preventAnimate: true});
 	},
 
 	events: {
@@ -28,16 +29,19 @@ Pinly.Views.Header = Backbone.CompositeView.extend({
 		var renderedContent = this.template();
 		this.$el.html(renderedContent);
 
-		this.updateCSS();
 		return this;
 	},
 
-	updateCSS: function(){
+	updateCSS: function(options){
 		var vpWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 		var vpWidth = Math.ceil(vpWidth * 0.97);
 
 		if (vpWidth >= 740) {
-			this.$el.animate( { width: this.getWidth() } , { duration:500, queue: false} );	
+			if (!options.preventAnimate) {
+				this.$el.animate( { width: this.getWidth() } , { duration:500, queue: false} );	
+			} else {
+				this.$el.css('width', this.getWidth());
+			}
 		}
 	},
 

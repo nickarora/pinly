@@ -1,4 +1,6 @@
-<h3><%= board.escape('title') %></h3>
-<pre><%= board.escape('description') %></pre>
-<h4>Pins:</h4>
+<div class='board-header'>
+	<h3><%= board.escape('title') %></h3>
+	<div class='board-description'><%= board.escape('description') %></div>
+</div>
+
 <div class='pins-list'></div>
