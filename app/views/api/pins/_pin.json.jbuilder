@@ -1,1 +1,1 @@
-json.(pin, :id, :url, :image_url, :created_at, :updated_at)
+json.(pin, :id, :url, :image_url, :created_at, :updated_at, :cloudinary_id)

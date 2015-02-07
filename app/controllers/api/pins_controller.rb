@@ -20,7 +20,7 @@ module Api
   	private
 
   	def pins_params
-  		params.require(:pin).permit(:url, :image_url);
+  		params.require(:pin).permit(:url, :image_url, :cloudinary_id);
   	end
 
   end

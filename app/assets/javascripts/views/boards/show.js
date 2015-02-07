@@ -6,8 +6,10 @@ Pinly.Views.BoardsShow = Backbone.CompositeView.extend({
 		this.listenTo(this.model, 'sync', this.render)
 		this.listenTo(this.model.boardpins(), 'add', this.addPin);
 		this.listenTo(this.model.pins(), 'remove', this.removePin);
-
 		$(window).on("resize", this.updateMasonry.bind(this));
+
+		$.cloudinary.config({ cloud_name: 'pinly', api_key: '938513664846214'});
+		$.cloudinary.config("cdn_subdomain", true);
 	},
 
 	addPin: function(boardpin){

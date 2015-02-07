@@ -6,83 +6,54 @@ Pinly.Views.PinsForm = Backbone.CompositeView.extend({
 	initialize: function(){
 		this.listenTo(this.model, 'sync', this.render);
 		this.first_phase = true;
+
+		$.cloudinary.config({ cloud_name: 'pinly', api_key: '938513664846214'});
 	},
 
 	events: {
 		'submit .pin-form': 'submitHandler',
-		'change input.upload': 'upload',
-		'drop .file-drop': 'uploadHandler',
 		'dragover .file-drop': 'dragOver',
 		'dragleave .file-drop': 'dragLeave'
+	},
+
+	initCloudinary: function(){
+		var that = this;
+
+		this.$('.file-drop').html(
+			$.cloudinary.unsigned_upload_tag("wsmemdnd", { 
+				
+				cloud_name: 'pinly'
+
+			}).bind('cloudinarydone', function(e, data) {
+
+				that.$('.file-drop').css('background-color', '#312c2d');
+				that.$('.cloudinary_fileupload').css('background-color', '#312c2d');
+				
+				var picId = data.result.public_id;
+				var $img = $.cloudinary.image( picId, { width: 368, height: 250, crop: 'fit' });
+    		that.$('.file-drop').html($img);
+
+    		that.model.set('image_url', data.result.url);
+    		that.model.set('cloudinary_id', data.result.public_id);
+
+			}).bind('cloudinaryprogress', function(e, data) { 
+  			
+  			that.$('.progress-bar').css('width', 
+    			Math.round((data.loaded * 100.0) / data.total) + '%'); 
+			})
+		);
 	},
 
 	dragOver: function(event){
 		event.preventDefault();
 		event.stopPropagation();
-		this.$('.file-drop').css('background-color', '#A7E0F0');
-		this.$('.file-drop').css('color', '#FFF');
+		this.$('.file-drop').css('background-color', '#3498db');
 	},
 
 	dragLeave: function(event){
 		event.preventDefault();
 		event.stopPropagation();
 		this.$('.file-drop').css('background-color', '#FFF');
-		this.$('.file-drop').css('color', '#CCC');
-	},
-
-	uploadHandler: function(event){
-    event.preventDefault();
-    event.stopPropagation();
-
-    var i = 0,
-      files = event.originalEvent.dataTransfer.files,
-      len = files.length;
-
-    for (; i < len; i++) {
-        this.storeFile(files[i]);
-    }
-	},
-
-	upload: function (event) {
-		var that = this;
-	  var i = 0,
-      files = event.target.files,
-      len = files.length;
-
-    for (; i < len; i++) {
-      this.storeFile(files[i]);
-    }
-	},
-
-	storeFile: function(file){
-		var that = this;
-
-    filepicker.store(
-      file,
-      {},
-      function(blob){
-      	that.model.set('image_url', blob.url);
-      	that.$('.filename').html(blob.filename);
-      	that.$('.upload-button').removeClass('btn-default');
-      	that.$('.upload-button').addClass('btn-uploaded');
-      	that.$('.filename').css('background-color', '#B4EC84');
-      	that.$('.filename').css('color', '#FFF')
-      	that.$('.filename').css('border', '0px')
-      	that.$('.file-drop').css('background-color', '#312c2d');
-      	that.$('.file-drop').empty();
-      	debugger
-
-      // 	var img_url = $.embedly.display.resize(blob.url, {query: {height: 250, width: 365}});
-    		var $img = $('<img>');
-    		$img.attr('src', blob.url);
-    		that.$('.file-drop').html($img);
-      },
-      function(error) { console.log(error); },
-      function(percent){
-      	that.$('.progress-bar').attr('aria-valuenow', percent + '' );
-      	that.$('.progress-bar').css('width', percent + '%');
-      }
-    );
 	},
 
 	submitHandler: function(event){
@@ -93,8 +64,10 @@ Pinly.Views.PinsForm = Backbone.CompositeView.extend({
 		var params = $target.serializeJSON();
 		this.model.set(params["pin"]);
 		
+		debugger
 		this.model.save({}, {
 			success: function(){
+				debugger
 				Pinly.Collections.pins.add(that.model, { merge: true });
 				that.addNextForm();
 			}
@@ -122,6 +95,7 @@ Pinly.Views.PinsForm = Backbone.CompositeView.extend({
 			});
 
 			this.$el.html(renderedContent);
+			this.initCloudinary();
 		}
 
 		this.attachSubviews();

@@ -30,8 +30,14 @@ Pinly.Views.PinCardShow = Backbone.CompositeView.extend({
 		});
 
 		this.$el.html(renderedContent);
-		return this;
-	}
+		this.renderImage();
 
+		return this;
+	},
+
+	renderImage: function(){
+		var $img = $.cloudinary.image(this.model.get('cloudinary_id'), { width: 235, crop: 'fit' });
+		this.$('.enlarge-pin').html($img)
+	}
 
 });

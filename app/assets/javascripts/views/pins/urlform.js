@@ -10,6 +10,12 @@ Pinly.Views.UrlPin = Backbone.CompositeView.extend({
 	initialize: function(){
 		this.listenTo(this.model, 'sync', this.render);
 		this.first_phase = true;
+
+		$.cloudinary.config({ cloud_name: 'pinly', api_key: '938513664846214'});
+	},
+
+	getPathFromUrl: function(url) {
+  	return url.split("?")[0];
 	},
 
 	submitHandler: function(){
@@ -28,11 +34,14 @@ Pinly.Views.UrlPin = Backbone.CompositeView.extend({
 
     	_.each(images, function(image){
     		var img_url = $.embedly.display.resize(image.url, {query: {height: 200, width: 354}});
+    		var strippedUrl = that.getPathFromUrl(image.url);
+
     		var $img = $('<img>');
-    		$img.attr('data-og-url', image.url);
-    		$img.attr('src', img_url)
+    		$img.attr('data-og-url', strippedUrl);
+    		$img.attr('src', img_url);
+
     		$container.append($img);
-    	})
+    	});
 
     	that.$('.picture-selector').html($container);
     });
@@ -40,15 +49,32 @@ Pinly.Views.UrlPin = Backbone.CompositeView.extend({
 
 	savePin: function(event) {
 		var that = this;
+		
 		var img_url = $(event.currentTarget).attr('data-og-url');
-		this.model.set('image_url', img_url);
+	
+		this.$('.upload_form').append($.cloudinary.unsigned_upload_tag("wsmemdnd", 
+ 		 { cloud_name: 'pinly' }));
 
-		this.model.save({}, {
-			success: function(){
-				Pinly.Collections.pins.add(that.model, { merge: true });
-				that.addNextForm();
-			}
+		this.$('.cloudinary_fileupload').cloudinary_upload_url(img_url);
+
+		this.$('.cloudinary_fileupload').on('cloudinarydone', function(e, data) {
+			var picId = data.result.public_id;
+  		that.model.set('image_url', data.result.url);
+  		that.model.set('cloudinary_id', data.result.public_id);
+
+			that.model.save({}, {
+				success: function(){
+					Pinly.Collections.pins.add(that.model, { merge: true });
+					that.addNextForm();
+				}
+			});
 		});
+
+		this.$('.cloudinary_fileupload').on('cloudinaryprogress', function(e, data) { 
+			that.$('.progress-bar').css('width', 
+				Math.round((data.loaded * 100.0) / data.total) + '%'); 
+		});
+
 	},
 
 	addNextForm: function(){

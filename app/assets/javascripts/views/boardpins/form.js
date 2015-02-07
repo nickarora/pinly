@@ -17,7 +17,6 @@ Pinly.Views.BoardPinsForm = Backbone.CompositeView.extend({
 	},
 
 	submitHandler: function(event){
-		console.log('triggered phase 2');
 		event.preventDefault();
 		var that = this;
 
@@ -26,7 +25,7 @@ Pinly.Views.BoardPinsForm = Backbone.CompositeView.extend({
 		params.boardpin.pin_id = this.pin_id;
 
 		this.model.set(params);
-		debugger
+
 		$('.modal').trigger('close-event');
 		
 		this.model.save({}, {

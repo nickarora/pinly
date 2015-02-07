@@ -1,20 +1,30 @@
 <div class='form-content'>
 	<form class='url-form'>
-		<div class='form-group'>
-			<label>Choose the URL you wish to Pin from:</label>
-			<input type='text' 
-						 name='url' 
-						 class='form-control'
-						 placeholder='http://www.cuteoverload.com'>
-			</input>
+
+		<label>Choose the URL you wish to Pin from:</label>
+		<div class='form-group row'>
+			<div class='col-xs-9'>
+				<input type='text' 
+							 name='url' 
+							 class='form-control'
+							 value='http://www.cuteoverload.com'>
+				</input>
+			</div>
+
+			<div class='col-xs-3'>
+				<button class='btn btn-primary'>Search</button>
+			</div>
 		</div>
 
 		<div class='form-group'>
-			<button class='btn btn-primary'>Search</button>
+			<div class='upload_form' style='display:none;'></div>
+			<div class='sel-msg'>Select an image when you are ready!</div>
+			<div class="picture-selector"></div>
 		</div>
-
-		<div class='sel-msg'>Select an image when you are ready!</div>
-		<div class="picture-selector"></div>
+		
+		<div class="form-group progress">
+		  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+		</div>
 
 	</form>
 </div>

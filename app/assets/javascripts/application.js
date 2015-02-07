@@ -13,18 +13,24 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.sortable
+
 //= require jquery.ui.widget
 //= require jquery.iframe-transport
 //= require jquery.fileupload
-//= require jquery.serializejson
-//= require imagesloaded.pkgd.min
 //= require jquery.cloudinary
+
 //= require jquery.embedly
-//= require bootstrap
+//= require jquery.serializejson
+
 //= require masonry.pkgd.min
+//= require imagesloaded.pkgd.min
+
 //= require underscore
 //= require backbone
+
+//= require bootstrap
 //= require backbone.bootstrap-modal
+
 //= require pinly
 //= require_tree ../templates
 //= require_tree ./utils
