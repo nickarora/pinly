@@ -2,10 +2,18 @@
 	text-transform: capitalize;
 }
 
-.boards-item {
+.board-item-wrapper {
+	width: 250px;
 	float: left;
 	margin-top: 10px;
 	margin-right: 10px;
+}
+
+.board-item-wrapper .follow-board-item {
+	width: 250px;
+}
+
+.boards-item {
 	padding: 10px;
 	width: 250px;
 	height: 250px;
