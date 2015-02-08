@@ -8,6 +8,7 @@ Pinly.Models.User = Backbone.Model.extend({
   },
 
 	parse: function(payload){
+
 		if (payload.boards){
 			this.boards().set(payload.boards, { parse: true });
       delete payload.boards;

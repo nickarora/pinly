@@ -8,7 +8,7 @@ Pinly.Collections.Users = Backbone.Collection.extend({
 		var that = this;
 		var user = this.get(id);
 		
-		if (user){
+		if (user) {
 			user.fetch();
 		} else {
 			user = new Pinly.Models.User({id: id});

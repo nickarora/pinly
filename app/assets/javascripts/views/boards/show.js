@@ -6,6 +6,7 @@ Pinly.Views.BoardsShow = Backbone.CompositeView.extend({
 		this.listenTo(this.model, 'sync', this.render);
 		this.listenTo(this.model.boardpins(), 'add', this.addPin);
 		this.listenTo(this.model.pins(), 'remove', this.removePin);
+		this.listenTo(this.model.follows(), 'add remove', this.render);
 		
 		$(window).on("resize", this.updateMasonry.bind(this));
 		$.cloudinary.config({ cloud_name: 'pinly', api_key: '938513664846214'});
@@ -15,14 +16,15 @@ Pinly.Views.BoardsShow = Backbone.CompositeView.extend({
 		'click .follow': 'followHandler'
 	},
 
-	followHandler: function(){
+	followHandler: function(event){
+		event.preventDefault();
 		var that = this;
 
-		if (this.model.follow) {
-			this.model.follow.destroy({
+		if ( this.model.follows().length ) {
+			var follow = this.model.follows().first();
+			follow.destroy({
 				success: function(){
-					that.model.follow = null;
-					that.render();
+					that.model.follows().remove(follow);		
 				}
 			});
 		} else {
@@ -31,8 +33,7 @@ Pinly.Views.BoardsShow = Backbone.CompositeView.extend({
 			follow.set('board_id', this.model.id);
 			follow.save({}, {
 				success: function(){
-					that.model.follow = follow;
-					that.render();
+					that.model.follows().add(follow);
 				}
 			});
 		}
@@ -75,8 +76,8 @@ Pinly.Views.BoardsShow = Backbone.CompositeView.extend({
 	},
 
 	render: function(){
+		
 		var that = this;
-
 		var renderedContent = this.template({
 		  board: this.model,
 		  followMsg: this.getFollowMsg()
@@ -94,7 +95,7 @@ Pinly.Views.BoardsShow = Backbone.CompositeView.extend({
 	},
 
 	getFollowMsg: function(){
-		if (this.model.follow) {
+		if (this.model.follows().length) {
 			return 'Unfollow';
 		} else {
 			return 'Follow';

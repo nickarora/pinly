@@ -42,7 +42,7 @@ Pinly.Routers.Router = Backbone.Router.extend({
 
 	showUser: function(id){
 		var user = Pinly.Collections.users.getOrFetch(id);
-	
+		
 		var userView = new Pinly.Views.UsersShow({
 			model: user
 		});

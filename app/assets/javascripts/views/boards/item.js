@@ -1,7 +1,6 @@
 Pinly.Views.BoardsItem = Backbone.CompositeView.extend({
 
 	template: JST['boards/boardsitem'],
-	className: 'boards-item',
 
 	events: {
 		'click .delete': 'removeBoard',
@@ -9,8 +8,9 @@ Pinly.Views.BoardsItem = Backbone.CompositeView.extend({
 		'click': 'showBoard'
 	},
 
-	initialize: function(){
-		this.listenTo(this.model, 'sync change', this.render)
+	initialize: function(options){
+		this.listenTo(this.model, 'sync change', this.render);
+		this.listenTo(this.model.follows(), 'add remove', this.render);
 	},
 
 	showBoard: function(event){
@@ -31,10 +31,19 @@ Pinly.Views.BoardsItem = Backbone.CompositeView.extend({
 
 	render: function(){
 		var renderedContent = this.template({
-		  board: this.model
+		  board: this.model,
+		  followMsg: this.getFollowMsg()
 		});
 		this.$el.html(renderedContent);
 		return this;
+	},
+
+	getFollowMsg: function(){
+		if (this.model.follows().length) {
+			return 'Unfollow';
+		} else {
+			return 'Follow';
+		}
 	}
 
 });

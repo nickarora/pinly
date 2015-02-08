@@ -4,6 +4,7 @@ module Api
     def show
     	@user = User.find(params[:id])
     	@boards = @user.boards
+      @follows = @user.follows
       
       render :show
     end

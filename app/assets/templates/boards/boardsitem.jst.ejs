@@ -1,4 +1,7 @@
-<button class='btn btn-danger delete'>X</button>
-<button class='btn btn-primary edit'>!</button>
-<p><%= board.escape('title') %></p>
-<p><%= board.escape('description') %></p>
+<div class='boards-item'>
+	<button class='btn btn-danger delete'>X</button>
+	<button class='btn btn-primary edit'>!</button>
+	<p><%= board.escape('title') %></p>
+	<p><%= board.escape('description') %></p>
+	<button class='follow-board-item btn btn-default'><%= followMsg %></button>
+</div>
