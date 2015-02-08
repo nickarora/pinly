@@ -21,6 +21,7 @@
 
 //= require jquery.embedly
 //= require jquery.serializejson
+//= require jquery.dotdotdot.min
 
 //= require masonry.pkgd.min
 //= require imagesloaded.pkgd.min

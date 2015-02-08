@@ -14,7 +14,35 @@ Pinly.Views.PinCardShow = Backbone.CompositeView.extend({
 	},
 
 	events: {
-		'click .enlarge-pin': 'biggify'
+		'click .enlarge-pin': 'biggify',
+		'mouseenter .image-area': 'showButton',
+		'mouseleave .image-area': 'hideButton',
+		'click .pin-button': 'pinHandler'
+	},
+
+	showButton: function(){
+		if (this.board.user().get('id') != Pinly.CURRENT_USER.id) {
+			this.$('.pin-button').css('display', 'block');
+		}
+	},
+
+	hideButton: function(){
+		this.$('.pin-button').css('display', 'none');
+	},
+
+	pinHandler: function(event){
+		event.preventDefault();
+
+		var boardpin = new Pinly.Models.BoardPin();
+		var view = new Pinly.Views.BoardPinsForm({
+      model: boardpin,
+      pin_id: this.model.id
+    });
+
+    var modal = new Backbone.BootstrapModal({ 
+			content: view,
+			style: 'modal-upload'
+		}).open();
 	},
 
 	parseUrl: function(){
@@ -38,13 +66,14 @@ Pinly.Views.PinCardShow = Backbone.CompositeView.extend({
 
 		this.$el.html(renderedContent);
 		this.renderImage();
+		this.$(".pin-description").dotdotdot();
 
 		return this;
 	},
 
 	renderImage: function(){
 		var $img = $.cloudinary.image(this.model.get('cloudinary_id'), { width: 235, crop: 'fit' });
-		this.$('.enlarge-pin').html($img)
+		this.$('.enlarge-pin').html($img);
 	},
 
 	biggify: function(event) {

@@ -21,26 +21,25 @@
 	box-shadow: 0 1px 2px #999999;
 }
 
-.card .enlarge-pin {
-	  display: inline-block;
-    background: black;
-    border-top-left-radius: 10px;
-		border-top-right-radius: 10px;
-    padding: 0;
+.card .image-area {
+	background: black;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	padding: 0;
 }
 
 .card .enlarge-pin img {
 	display: block;
 
-  -webkit-transition: all 0.1s linear;
-     -moz-transition: all 0.1s linear;
-      -ms-transition: all 0.1s linear;
-       -o-transition: all 0.1s linear;
-          transition: all 0.1s linear;
+  -webkit-transition: all 0.05s linear;
+     -moz-transition: all 0.05s linear;
+      -ms-transition: all 0.05s linear;
+       -o-transition: all 0.05s linear;
+          transition: all 0.05s linear;
 }
 
-.card .enlarge-pin:hover img {
-	opacity: 0.7;
+.card .image-area:hover img {
+	opacity: 0.8;
 }
 
 .from i {
@@ -80,7 +79,7 @@
 	width: 235px;
 	min-height: 30px;
 	max-height: 100px;
-  overflow: hidden;
+	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
@@ -121,8 +120,17 @@
 }
 
 .card img {
-	/* width: 235px; */
-	/* 100% */
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
+}
+
+.pin-button {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	border: none;
+	width: 60px;
+	height: 32px;
+	display: none;
+	z-index: 5;
 }

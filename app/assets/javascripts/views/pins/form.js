@@ -64,10 +64,8 @@ Pinly.Views.PinsForm = Backbone.CompositeView.extend({
 		var params = $target.serializeJSON();
 		this.model.set(params["pin"]);
 		
-		debugger
 		this.model.save({}, {
 			success: function(){
-				debugger
 				Pinly.Collections.pins.add(that.model, { merge: true });
 				that.addNextForm();
 			}

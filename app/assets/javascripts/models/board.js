@@ -16,11 +16,21 @@ Pinly.Models.Board = Backbone.Model.extend({
   	return this._boardpins;
   },
 
+  user: function(){
+  	this._user = this._user || new Pinly.Models.User();
+  	return this._user;
+  },
+
 	parse: function(payload){
 		
 		if (payload.pinner){
 			this.pinner = payload.pinner;
 			delete payload.pinner;
+		}
+
+		if (payload.user){
+			this.user().set(payload.user, { parse: true });
+			delete payload.user;
 		}
 
 		if (payload.pins){
@@ -35,6 +45,5 @@ Pinly.Models.Board = Backbone.Model.extend({
 		
 		return payload;
 	}
-
 	
 });
