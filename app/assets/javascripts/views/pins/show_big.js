@@ -1,10 +1,10 @@
-Pinly.Views.PinCardShow = Backbone.CompositeView.extend({
-	
-	template: JST['pins/show_card'],
+Pinly.Views.PinBig = Backbone.CompositeView.extend({
 
-	className: 'pin-child',
+	template: JST['pins/show_big'],
 
-	initialize: function(options) {
+	className: 'full-screen-modal',
+
+	initialize: function(options){
 		this.model = options.model;
 		this.pinner = options.pinner;
 		this.des = options.des;
@@ -14,7 +14,18 @@ Pinly.Views.PinCardShow = Backbone.CompositeView.extend({
 	},
 
 	events: {
-		'click .enlarge-pin': 'biggify'
+		'click': 'close'
+	},
+
+	open: function(){
+		$('body').remove('.full-screen-modal');
+		$('body').addClass('noscroll');
+		$('body').prepend(this.render().$el);
+	},
+
+	close: function(){
+		$('body').removeClass('noscroll');
+		$('.full-screen-modal').remove();
 	},
 
 	parseUrl: function(){
@@ -24,7 +35,6 @@ Pinly.Views.PinCardShow = Backbone.CompositeView.extend({
 	},
 
 	render: function(){
-
 		var shortDom = this.parseUrl();
 		var title = this.board ? this.board.get('title') : null;
 
@@ -38,26 +48,12 @@ Pinly.Views.PinCardShow = Backbone.CompositeView.extend({
 
 		this.$el.html(renderedContent);
 		this.renderImage();
-
 		return this;
 	},
 
 	renderImage: function(){
-		var $img = $.cloudinary.image(this.model.get('cloudinary_id'), { width: 235, crop: 'fit' });
-		this.$('.enlarge-pin').html($img)
+		var $img = $.cloudinary.image(this.model.get('cloudinary_id'), { width: 470, height: 470, crop: 'fit' });
+		this.$('.big-image').html($img)
 	},
-
-	biggify: function(event) {
-		event.preventDefault();
-
-		var view = new Pinly.Views.PinBig({
-		  model: this.model,
-			pinner: this.pinner,
-			des: this.des, 
-			board: this.board
-		});
-
-		view.open();
-	}
 
 });
