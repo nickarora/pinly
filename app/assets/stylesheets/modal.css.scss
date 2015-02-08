@@ -1,4 +1,5 @@
-/* styling for individual modals */
+/* Styling for Large Individual Card Modal */
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -34,6 +35,8 @@
   width:500px;
   height:500px;
   background-color: #1e1c1c;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
 .big-card .left img {
@@ -41,8 +44,7 @@
   display: block;
   top: 0; bottom: 0; left: 0; right: 0;
   margin: auto;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-radius: 20px;
 }
 
 .big-card .right {
@@ -61,6 +63,8 @@
 .noscroll {
   overflow: hidden;
 }
+
+/* Styling for Upload Modals */
 
 .modal-upload {
 	width: 400px;
