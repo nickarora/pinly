@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :edit, :update]
     resources :pins, only: [:create, :destroy]
     resources :boardpins, only: [:create, :destroy]
+    resources :follows, only: [:create, :destroy]
   end
   
 end

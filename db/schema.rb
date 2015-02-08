@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150207073912) do
+ActiveRecord::Schema.define(version: 20150208085116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150207073912) do
   create_table "boardpins", force: :cascade do |t|
     t.integer  "board_id",    null: false
     t.integer  "pin_id",      null: false
-    t.text     "description"
+    t.text     "description", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -37,12 +37,22 @@ ActiveRecord::Schema.define(version: 20150207073912) do
 
   add_index "boards", ["user_id"], name: "index_boards_on_user_id", using: :btree
 
+  create_table "follows", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "board_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "follows", ["board_id"], name: "index_follows_on_board_id", using: :btree
+  add_index "follows", ["user_id"], name: "index_follows_on_user_id", using: :btree
+
   create_table "pins", force: :cascade do |t|
     t.string   "url",           null: false
     t.string   "image_url",     null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.string   "cloudinary_id"
+    t.string   "cloudinary_id", null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -17,4 +17,11 @@ class Board < ActiveRecord::Base
 	has_many :boardpins, dependent: :destroy
 	has_many :pins, through: :boardpins
 
+	has_many :follows, dependent: :destroy
+	
+	has_many :followers, 
+					 through: :follows,
+					 source: :user
+	
+
 end

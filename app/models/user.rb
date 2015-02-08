@@ -24,6 +24,11 @@ class User < ActiveRecord::Base
 
   has_many :boards, dependent: :destroy
 
+  has_many :follows, dependent: :destroy
+  has_many :followed_boards, 
+           through: :follows,
+           source: :board
+
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, password)

@@ -4,6 +4,7 @@ Pinly.Models.Board = Backbone.Model.extend({
 
 	initialize: function(){
 		this.pinner = null;
+		this.follow = null;
 	},
 
 	pins: function () {
@@ -26,6 +27,12 @@ Pinly.Models.Board = Backbone.Model.extend({
 		if (payload.pinner){
 			this.pinner = payload.pinner;
 			delete payload.pinner;
+		}
+
+		if (payload.follow){
+			this.follow = new Pinly.Models.Follow();
+			this.follow.set(payload.follow, { parse: true });
+			delete payload.follow;
 		}
 
 		if (payload.user){

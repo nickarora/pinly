@@ -27,6 +27,7 @@ module Api
       @user = @board.user
       @boardpins = @board.boardpins
       @pins = @board.pins
+      @follow = Follow.find_by(board_id: @board.id, user_id: current_user.id)
 
       # simplifies a task that would be more difficult in JS
       @pinner = @board.user.fname.capitalize + " " + @board.user.lname.capitalize

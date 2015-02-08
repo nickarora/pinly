@@ -1,0 +1,1 @@
+json.(follow, :id, :board_id, :user_id)

@@ -7,7 +7,7 @@
 #  image_url     :string           not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
-#  cloudinary_id :integer
+#  cloudinary_id :string           not null
 #
 
 require 'test_helper'
