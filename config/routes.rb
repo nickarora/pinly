@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :pins, only: [:create, :destroy]
     resources :boardpins, only: [:create, :destroy]
     resources :follows, only: [:create, :destroy]
+    get 'feeds', to: 'feeds#index'
   end
   
 end

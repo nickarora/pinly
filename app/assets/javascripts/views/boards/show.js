@@ -8,7 +8,10 @@ Pinly.Views.BoardsShow = Backbone.CompositeView.extend({
 		this.listenTo(this.model.pins(), 'remove', this.removePin);
 		this.listenTo(this.model.follows(), 'add remove', this.render);
 		
+		// no less than three columns
 		$(window).on("resize", this.updateMasonry.bind(this));
+
+		// required for upload to cloudinary
 		$.cloudinary.config({ cloud_name: 'pinly', api_key: '938513664846214'});
 	},
 
@@ -24,7 +27,8 @@ Pinly.Views.BoardsShow = Backbone.CompositeView.extend({
 			var follow = this.model.follows().first();
 			follow.destroy({
 				success: function(){
-					that.model.follows().remove(follow);		
+					that.model.follows().remove(follow);
+							
 				}
 			});
 		} else {

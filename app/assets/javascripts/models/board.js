@@ -21,7 +21,7 @@ Pinly.Models.Board = Backbone.Model.extend({
   	return this._user;
   },
 
-  follows: function(options){
+  follows: function(){
   	this._follows = this._follows || new Pinly.Collections.Follows();
   	return this._follows;
   },
