@@ -17,7 +17,8 @@ Pinly.Views.PinCardShow = Backbone.CompositeView.extend({
 		'click .enlarge-pin': 'biggify',
 		'mouseenter .image-area': 'showButton',
 		'mouseleave .image-area': 'hideButton',
-		'click .pin-button': 'pinHandler'
+		'click .pin-button': 'pinHandler',
+		'click .pinner': 'viewSource'
 	},
 
 	showButton: function(){
@@ -28,6 +29,10 @@ Pinly.Views.PinCardShow = Backbone.CompositeView.extend({
 
 	hideButton: function(){
 		this.$('.pin-button').css('display', 'none');
+	},
+
+	viewSource: function(){
+		Backbone.history.navigate("#/boards/" + this.board.get('id'), {trigger: true});
 	},
 
 	pinHandler: function(event){
