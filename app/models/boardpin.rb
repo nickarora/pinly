@@ -15,5 +15,9 @@ class Boardpin < ActiveRecord::Base
 	validates :board, :pin, :description, presence: true
 	belongs_to :board
 	belongs_to :pin
+
+	searchable do
+		text :description
+	end
 	
 end

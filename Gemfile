@@ -16,6 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'newrelic_rpm'
 gem "figaro"
 gem 'kaminari'
+gem 'sunspot_rails'
 
 group :development, :test do
   gem 'byebug'
@@ -25,6 +26,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
+  gem 'sunspot_solr'
 end
 
 gem 'rails_12factor', group: :production

@@ -6,11 +6,12 @@ Pinly.Routers.Router = Backbone.Router.extend({
 	},
 
 	routes: {
-		"": 								'feed',
-		"boards/:id": 			'showBoard',
-		"boards/:id/edit": 	'editBoard',
-		"users/:id": 				'showUser',
-		"users/:id/edit": 	'editUser'
+		"": 										'feed',
+		"search/?*queryString": 	'search',
+		"boards/:id": 					'showBoard',
+		"boards/:id/edit": 			'editBoard',
+		"users/:id": 						'showUser',
+		"users/:id/edit": 			'editUser'
 	},
 
 	feed: function(){
@@ -18,6 +19,21 @@ Pinly.Routers.Router = Backbone.Router.extend({
 		var feed = Pinly.Collections.feedPosts.fetch({
 			remove: false,
     	data: { page: 1 }
+		});
+
+		var feedView = new Pinly.Views.Feed({
+		  collection: Pinly.Collections.feedPosts
+		});
+		
+		this._swapView(feedView);
+	},
+
+	search: function(queryString){
+
+		var feed = Pinly.Collections.feedPosts.fetch({
+			remove: false,
+    	data: { page: 1,
+    					queryString: queryString }
 		});
 
 		var feedView = new Pinly.Views.Feed({

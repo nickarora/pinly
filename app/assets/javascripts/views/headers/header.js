@@ -5,6 +5,7 @@ Pinly.Views.Header = Backbone.CompositeView.extend({
 
 	initialize: function(){
 		 $(window).on("resize", this.updateCSS.bind(this));
+		 $(window).on('keypress', this.checkSearch.bind(this));
 		 this.updateCSS({preventAnimate: true});
 	},
 
@@ -12,13 +13,25 @@ Pinly.Views.Header = Backbone.CompositeView.extend({
 		'click .current-user': 'showProfile',
 		'click .logo': 'showHome',
 		'blur .search': 'formHandler',
-		'click .search-button': 'searchHandler'
+		'click .search-button': 'searchHandler',
 	},
 
 	searchHandler: function(event) {
 		event.preventDefault();
-		var $searchTerms = this.$('.search').find('input').val();
-		if ($searchTerms == "") { return; }
+		var searchTerms = this.$('.search').find('input').val();
+		if (searchTerms == "") { 
+			$(event.currentTarget).blur();
+			return; 
+		}
+
+		Backbone.history.navigate('#/search/?' + searchTerms);
+	},
+
+	checkSearch: function(event){
+		var keycode = (event.keyCode ? event.keyCode : event.which);
+    if( keycode == '13') {
+  		$( ".search-button" ).trigger( "click" );
+    }
 	},
 
 	showProfile: function(event){
@@ -38,7 +51,7 @@ Pinly.Views.Header = Backbone.CompositeView.extend({
 		this.$el.html(renderedContent);
 		this.$('.search').tokenField({
 			regex: /\w+/,
-			max: 5
+			max: 6
 		});
 		this.$('.search').css('width', '200px')
 		return this;
