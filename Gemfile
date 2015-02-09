@@ -15,6 +15,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'uglifier', '>= 1.3.0'
 gem 'newrelic_rpm'
 gem "figaro"
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug'

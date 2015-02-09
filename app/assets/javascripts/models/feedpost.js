@@ -18,7 +18,7 @@ Pinly.Models.FeedPost = Backbone.Model.extend({
   },
 
 	parse: function(payload){
-
+		  
 		if (payload.pinner){
 			this.pinner = payload.pinner;
 			delete payload.pinner;

@@ -92,6 +92,7 @@ Pinly.Views.BoardsShow = Backbone.CompositeView.extend({
 		this.renderMasonry();
 
 		this.$('.pins-list').imagesLoaded( function() {
+  		that.$('.card').animate({opacity: 1});
   		that.renderMasonry();
 		});
 

@@ -4,18 +4,39 @@ Pinly.Views.Feed = Backbone.CompositeView.extend({
 	className: 'feed',
 
 	initialize: function(){
-		this.listenTo(this.collection, 'sync', this.render);
+		this.listenTo(this.collection, 'sync add', this.render);
 		this.listenTo(this.collection, 'add', this.addPin);
+
+		// get more pages if need be
+		$(window).on('scroll', this.scrollHandler.bind(this));
 
 		// no less than three columns
 		$(window).on("resize", this.updateMasonry.bind(this));
 
 		// required for upload to cloudinary
 		$.cloudinary.config({ cloud_name: 'pinly', api_key: '938513664846214'});
+
+	},
+
+	scrollHandler: function(event){
+		event.preventDefault();
+		
+		if (document.body.scrollHeight == 
+	      document.body.scrollTop +        
+	      window.innerHeight) {
+
+      if (this.collection.page < this.collection.total_pages) {
+        this.collection.page++;
+        this.collection.fetch({
+          remove: false,
+          data: { page: this.collection.page }
+        });
+    	}
+		}
+
 	},
 
 	addPin: function(feedPost){
-		debugger
 		var view = new Pinly.Views.PinCardShow({
       model: feedPost.pin(),
       des: feedPost.get('description'),
@@ -28,12 +49,22 @@ Pinly.Views.Feed = Backbone.CompositeView.extend({
 
 	renderMasonry: function(){
 		var $container = this.$('.feed-list');
+
 		$container.masonry({
 			columnWidth: 235,
 			"gutter": 10,
 			"isFitWidth": true,
 		  itemSelector: '.pin-child',
-		  transitionDuration: 0
+		  transitionDuration: 0,
+		});
+	},
+
+	fadeInCards: function(){
+		var that = this;
+		$('.pin-child').imagesLoaded().progress(function( imgLoad, image){		
+			var $pin = $(image.img).parents('.pin-child');
+			$pin.find('.card').animate({opacity: 1});
+			that.renderMasonry();
 		});
 	},
 
@@ -43,11 +74,8 @@ Pinly.Views.Feed = Backbone.CompositeView.extend({
 		this.$el.html(renderedContent);
 		this.attachSubviews();
 		this.renderMasonry();
-
-		this.$('.pins-list').imagesLoaded( function() {
-  		that.renderMasonry();
-		});
-
+		this.fadeInCards();
+		this.$(".pin-description").dotdotdot();
 		return this;
 	},
 

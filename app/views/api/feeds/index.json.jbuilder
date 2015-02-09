@@ -1,5 +1,9 @@
+json.page @page
+json.total_pages @total_pages
+
 unless(@boardpins.empty?)
-  json.array!(@boardpins) do |boardpin|
+
+  json.members(@boardpins) do |boardpin|
 
 		json.partial! "api/boardpins/boardpin", boardpin: boardpin
 
@@ -16,7 +20,7 @@ unless(@boardpins.empty?)
 		end
 
 		@pinner = boardpin.board.user.fname.capitalize + " " + boardpin.board.user.lname.capitalize
+		
 		json.pinner @pinner
-
 	end
 end

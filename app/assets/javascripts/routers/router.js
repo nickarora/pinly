@@ -15,7 +15,10 @@ Pinly.Routers.Router = Backbone.Router.extend({
 
 	feed: function(){
 
-		var feed = Pinly.Collections.feedPosts.fetch();
+		var feed = Pinly.Collections.feedPosts.fetch({
+			remove: false,
+    	data: { page: 1 }
+		});
 
 		var feedView = new Pinly.Views.Feed({
 		  collection: Pinly.Collections.feedPosts
