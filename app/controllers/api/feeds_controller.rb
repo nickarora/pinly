@@ -8,7 +8,7 @@ module Api
     								.where(board_id: board_ids)
     								.order("created_at DESC")
     								.page(params[:page])
-    								.per(8);
+    								.per(12);
 
     	@page = params[:page]
     	@total_pages = @boardpins.total_pages
