@@ -1,7 +1,7 @@
 <div class="search-bar pull-left">
-	<div class='btn-group'>
-		<button type="button" class="btn btn-default logo"><i class="fa fa-pinterest red"></i></button>
-	</div>
+	<button type="button" class="btn btn-default logo pull-left"><i class="fa fa-pinterest red"></i></button>
+	<input type='text' class='search pull-left'></input>
+	<button type="button" class="btn btn-default search-button pull-left"><i class="fa fa-search"></i></button>
 </div>
 
 <div class="user-nav pull-right">
@@ -10,6 +10,6 @@
 		<% if (Pinly.CURRENT_USER) { %>
 			<%= Pinly.CURRENT_USER.fname %></button>
 		<% } %>
-	  <button type="button" class="btn btn-default">X</button>
+	  <button type="button" class="btn btn-default notification-button"><i class="fa fa-comment"></i></button>
 	</div>
 </div>

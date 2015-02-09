@@ -1,0 +1,101 @@
+.token-field {
+  font-size: 12px; 
+  font-family: "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+  height: 34px;
+  border: 1px solid #ccc;
+  background: #e9e9e9;
+  color: 5f5f5f;
+  padding: 3px 3px 3px 3px;
+  cursor: text;
+  width: 370px !important;
+  overflow: hidden;
+}
+
+.token-field .token {
+  font-size: 12px; 
+  border: none;
+  padding: 0 !important;
+  background: #7c719a;
+  color: white;
+  border-radius: 5px;
+  height: 26px;
+  line-height: 22px;
+  float: left;
+  white-space: nowrap;
+  text-decoration: none;
+  margin-right: 3px;
+  cursor: default;
+}
+.token-field .token span {
+  display: block;
+}
+.token-field .token span span {
+  background-position: bottom right;
+}
+.token-field .token span span span {
+  background-position: bottom left;
+}
+.token-field .token span span span span {
+  background-image: none;
+  padding: 2px 3px 2px 5px;
+}
+.token-field .token:hover {
+  
+}
+.token-field .token:hover span {
+  
+}
+.token-field .selected-token {
+  
+  color: #fff;
+}
+.token-field .selected-token span {
+  
+}
+.token-field .selected-token:hover {
+  
+}
+.token-field .selected-token:hover span {
+  
+}
+.token-field .token span.token-x {
+  padding: 0 2px 0 3px;
+  color: #fff;
+  display: inline;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 11px;
+  height: 11px;
+  font-weight: bold;
+}
+.token-field .token:hover span.token-x {
+}
+
+.token-field input {
+  background-color: #e9e9e9;
+  color: 5f5f5f;
+}
+
+.token-field .token-input {
+  float: left;
+  height: 26px;
+  padding: 0;
+  margin: 3px 0 0 0;
+}
+
+.token-field .token-input input {
+  font: 14px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+  border: 0 none;
+  outline: 0 none;
+  width: 100%;
+}
+.token-field .token-input-sizer {
+  font: 11px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+  left: 0;
+  position: relative;
+  top: 0;
+  display: block;
+  overflow: hidden;
+  height: 0;
+  line-height: 0;
+}

@@ -10,7 +10,15 @@ Pinly.Views.Header = Backbone.CompositeView.extend({
 
 	events: {
 		'click .current-user': 'showProfile',
-		'click .logo': 'showHome'
+		'click .logo': 'showHome',
+		'blur .search': 'formHandler',
+		'click .search-button': 'searchHandler'
+	},
+
+	searchHandler: function(event) {
+		event.preventDefault();
+		var $searchTerms = this.$('.search').find('input').val();
+		if ($searchTerms == "") { return; }
 	},
 
 	showProfile: function(event){
@@ -28,7 +36,11 @@ Pinly.Views.Header = Backbone.CompositeView.extend({
 	render: function(){
 		var renderedContent = this.template();
 		this.$el.html(renderedContent);
-
+		this.$('.search').tokenField({
+			regex: /\w+/,
+			max: 5
+		});
+		this.$('.search').css('width', '200px')
 		return this;
 	},
 
