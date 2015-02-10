@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :boardpins, only: [:create, :destroy]
     resources :follows, only: [:create, :destroy]
     resources :likes, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
     get 'feeds', to: 'feeds#index'
   end
   

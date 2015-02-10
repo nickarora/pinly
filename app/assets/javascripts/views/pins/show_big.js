@@ -5,16 +5,63 @@ Pinly.Views.PinBig = Backbone.CompositeView.extend({
 	className: 'full-screen-modal',
 
 	initialize: function(options){
+		$(window).on('keyup', this.checkKeypress.bind(this));
+
 		this.model = options.model;
 		this.pinner = options.pinner;
 		this.boardpin = options.boardpin;
 		this.board = options.board;
 
 		this.listenTo(this.board, 'sync', this.render);
+		this.listenTo(this.boardpin.comments(), 'add', this.addComment);
+		
+		this.boardpin.comments().each(function(comment){
+			this.addComment(comment);
+		}, this);
+
 	},
 
 	events: {
-		'click': 'close'
+		'click .cancel-modal': 'close',
+		'submit .comment-form': 'commentHandler'
+	},
+
+	addComment: function(comment){
+		var view = new Pinly.Views.Comment({
+      model: comment
+    });
+
+    this.addSubview('.comments', view);
+	},
+
+	commentHandler: function(event){
+		
+		event.preventDefault();
+		var that = this;
+
+		$target = $(event.currentTarget);
+		var params = $target.serializeJSON();
+		var comment = new Pinly.Models.Comment();
+
+		comment.set('boardpin_id', this.boardpin.id);
+		comment.set('user_id', Pinly.CURRENT_USER.id);
+		comment.set(params["comment"]);
+
+
+		comment.save({}, {
+			success: function(result){
+				result.user().set(Pinly.CURRENT_USER);
+				that.boardpin.comments().add(result);
+			}
+		});
+	},
+
+	checkKeypress: function(event){
+
+		var keycode = (event.keyCode ? event.keyCode : event.which);
+    if( keycode == '27') {
+  		$( ".cancel-modal" ).trigger( "click" );
+    }
 	},
 
 	open: function(){
@@ -26,6 +73,7 @@ Pinly.Views.PinBig = Backbone.CompositeView.extend({
 	close: function(){
 		$('body').removeClass('noscroll');
 		$('.full-screen-modal').remove();
+		$(window).off('keyup');
 	},
 
 	parseUrl: function(){
@@ -48,12 +96,13 @@ Pinly.Views.PinBig = Backbone.CompositeView.extend({
 
 		this.$el.html(renderedContent);
 		this.renderImage();
+		this.attachSubviews();
 		return this;
 	},
 
 	renderImage: function(){
 		var $img = $.cloudinary.image(this.model.get('cloudinary_id'), { width: 470, height: 470, crop: 'fit' });
-		this.$('.big-image').html($img)
-	},
+		this.$('.big-image').html($img);
+	}
 
 });

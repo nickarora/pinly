@@ -11,6 +11,8 @@
 #  description     :text
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  image_url       :string           default("http://res.cloudinary.com/pinly/image/upload/v1423542388/csnjhadzhi8d3sf8srh4.jpg")
+#  cloudinary_id   :string           default("csnjhadzhi8d3sf8srh4")
 #
 
 class User < ActiveRecord::Base
@@ -30,6 +32,8 @@ class User < ActiveRecord::Base
            source: :board
 
   has_many :likes, dependent: :destroy
+
+  has_many :comments, dependent: :destroy
 
   after_initialize :ensure_session_token
 

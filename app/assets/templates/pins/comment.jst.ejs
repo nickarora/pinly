@@ -1,0 +1,8 @@
+<div class="row">
+	<div class="col-xs-2">
+		<a href="#/users/<%= comment.user().escape('id') %>"></a><div class="comment-avatar"></div>
+	</div>
+	<div class="col-xs-10">
+		<%= comment.escape('body') %>
+	</div>
+</div>

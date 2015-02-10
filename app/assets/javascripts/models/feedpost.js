@@ -22,6 +22,11 @@ Pinly.Models.FeedPost = Backbone.Model.extend({
   	return this._liked;
 	},
 
+	comments: function(){
+		this._comments = this._comments || new Pinly.Collections.Comments();
+		return this._comments;
+	},
+
 	parse: function(payload){
 		
 		if (payload.liked){
@@ -52,6 +57,11 @@ Pinly.Models.FeedPost = Backbone.Model.extend({
 		if (payload.user){
 			this.user().set(payload.user, { parse: true });
 			delete payload.user;
+		}
+
+		if (payload.comments){
+			this.comments().set(payload.comments, { parse: true } );
+			delete payload.comments;
 		}
 
 		return payload;

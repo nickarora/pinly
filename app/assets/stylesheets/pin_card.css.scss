@@ -163,3 +163,14 @@
 	display: none;
 	z-index: 5;
 }
+
+.big-card .cancel-modal {
+	position: fixed;
+	top: 0;
+	right: 100px;
+	width: 80px;
+	height: 80px;
+	font-size: 40px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+}

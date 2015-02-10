@@ -21,6 +21,8 @@ class Boardpin < ActiveRecord::Base
            through: :likes,
            source: :user
 
+  has_many :comments, dependent: :destroy
+
 	searchable do
 		text :description
 	end

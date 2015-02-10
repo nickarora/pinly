@@ -7,8 +7,16 @@ Pinly.Models.BoardPin = Backbone.Model.extend({
   	return this._liked;
 	},
 
+	comments: function(){
+		this._comments = this._comments || new Pinly.Collections.Comments();
+		return this._comments;
+	},
+
 	parse: function(payload){
-		
+
+		this.numLiked = payload.numLiked;
+		delete payload.numLiked;
+
 		if (payload.liked){
 			this.liked().set([payload.liked], { parse: true });
 			delete payload.liked;
@@ -16,8 +24,10 @@ Pinly.Models.BoardPin = Backbone.Model.extend({
 			this.liked().set([], { parse: true });
 		}
 
-		this.numLiked = payload.numLiked;
-		delete payload.numLiked;
+		if (payload.comments){
+			this.comments().set(payload.comments, { parse: true } );
+			delete payload.comments;
+		}
 
 		return payload;
 	}
