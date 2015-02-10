@@ -7,10 +7,11 @@ Pinly.Views.PinCardShow = Backbone.CompositeView.extend({
 	initialize: function(options) {
 		this.model = options.model;
 		this.pinner = options.pinner;
-		this.des = options.des;
+		this.boardpin = options.boardpin
 		this.board = options.board;
 
 		this.listenTo(this.board, 'sync', this.render);
+		this.listenTo(this.boardpin.liked(), 'add remove', this.updateLikeIcon);
 	},
 
 	events: {
@@ -18,21 +19,51 @@ Pinly.Views.PinCardShow = Backbone.CompositeView.extend({
 		'mouseenter .image-area': 'showButton',
 		'mouseleave .image-area': 'hideButton',
 		'click .pin-button': 'pinHandler',
+		'click .like-button': 'likeHandler',
 		'click .pinner': 'viewSource'
 	},
 
 	showButton: function(){
 		if (this.board.user().get('id') != Pinly.CURRENT_USER.id) {
 			this.$('.pin-button').css('display', 'block');
+			this.$('.like-button').css('display', 'block');
 		}
 	},
 
 	hideButton: function(){
 		this.$('.pin-button').css('display', 'none');
+		this.$('.like-button').css('display', 'none');
 	},
 
 	viewSource: function(){
 		Backbone.history.navigate("#/boards/" + this.board.get('id'), {trigger: true});
+	},
+
+	likeHandler: function(event){
+		event.preventDefault();
+		$(event.currentTarget).blur();
+		var that = this;
+
+		if ( this.boardpin.liked().length ) {
+			var like = this.boardpin.liked().first();
+			this.boardpin.numLiked -= 1;
+			like.destroy({
+				success: function(){
+					that.boardpin.liked().remove(like);
+				}
+			});
+		} else {
+			var like = new Pinly.Models.Like();
+			like.set('user_id', Pinly.CURRENT_USER.id);
+			like.set('boardpin_id', this.boardpin.id);
+			this.boardpin.numLiked += 1;
+			like.save({}, {
+				success: function(){
+					that.boardpin.liked().add(like);
+				}
+			});
+		}
+
 	},
 
 	pinHandler: function(event){
@@ -57,23 +88,54 @@ Pinly.Views.PinCardShow = Backbone.CompositeView.extend({
 	},
 
 	render: function(){
-
 		var shortDom = this.parseUrl();
 		var title = this.board ? this.board.get('title') : null;
 
 		var renderedContent = this.template({
 		  pin: this.model,
 		  dom: shortDom,
-		  description: this.des,
+		  description: this.boardpin.get('description'),
+		  numLiked: this.boardpin.numLiked,
 		  pinner: this.pinner,
 		  board: title
 		});
 
 		this.$el.html(renderedContent);
 		this.renderImage();
+		this.updateLikeIconColor();
 		this.$(".pin-description").dotdotdot();
 
 		return this;
+	},
+
+	updateLikeIconColor: function(){
+		if (this.boardpin.liked().length){
+			this.$('.like-button').css('color', '#cb2026');
+		} else {
+			this.$('.like-button').css('color', '#5d5d5d');
+		}
+	},
+
+	updateLikeIconCount: function(){
+		if (this.boardpin.numLiked) {
+			var $tag = $('<p></p>');
+			var $heart = $('<i class="fa fa-heart red"></i>');
+			var $num = $('<span class="like-count-num"></span>')
+			
+			$num.text(this.boardpin.numLiked);
+			$tag.append($heart);
+			$tag.append(" ");
+			$tag.append($num);
+
+			this.$('.like-count').html($tag);
+		} else {
+			this.$('.like-count').empty();
+		}
+	},
+
+	updateLikeIcon: function(){
+		this.updateLikeIconColor();
+		this.updateLikeIconCount();
 	},
 
 	renderImage: function(){
@@ -87,7 +149,7 @@ Pinly.Views.PinCardShow = Backbone.CompositeView.extend({
 		var view = new Pinly.Views.PinBig({
 		  model: this.model,
 			pinner: this.pinner,
-			des: this.des, 
+			boardpin: this.boardpin, 
 			board: this.board
 		});
 

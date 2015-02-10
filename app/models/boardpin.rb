@@ -16,6 +16,11 @@ class Boardpin < ActiveRecord::Base
 	belongs_to :board
 	belongs_to :pin
 
+	has_many :likes, dependent: :destroy
+	has_many :likers, 
+           through: :likes,
+           source: :user
+
 	searchable do
 		text :description
 	end

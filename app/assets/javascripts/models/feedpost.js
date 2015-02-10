@@ -17,8 +17,23 @@ Pinly.Models.FeedPost = Backbone.Model.extend({
     return this._board;
   },
 
+  liked: function(){
+		this._liked = this._liked || new Pinly.Collections.Likes();
+  	return this._liked;
+	},
+
 	parse: function(payload){
-		  
+		
+		if (payload.liked){
+			this.liked().set([payload.liked], { parse: true });
+			delete payload.liked;
+		} else {
+			this.liked().set([], { parse: true });
+		}
+
+		this.numLiked = payload.numLiked;
+		delete payload.numLiked;
+
 		if (payload.pinner){
 			this.pinner = payload.pinner;
 			delete payload.pinner;

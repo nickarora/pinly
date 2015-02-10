@@ -2,7 +2,7 @@ json.partial!("board", board: @board)
 
 json.pinner @pinner
 
-unless (!@follow)
+if @follow
 	json.follow do
 		json.partial! "api/follows/follow", follow: @follow
 	end

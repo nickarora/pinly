@@ -7,7 +7,11 @@ Pinly.Views.BoardsShow = Backbone.CompositeView.extend({
 		this.listenTo(this.model.boardpins(), 'add', this.addPin);
 		this.listenTo(this.model.pins(), 'remove', this.removePin);
 		this.listenTo(this.model.follows(), 'add remove', this.render);
-		
+
+		this.model.boardpins().each(function(pin){
+			this.addPin(pin);
+		}, this);
+
 		// no less than three columns
 		$(window).on("resize", this.updateMasonry.bind(this));
 
@@ -50,7 +54,7 @@ Pinly.Views.BoardsShow = Backbone.CompositeView.extend({
 
 		var view = new Pinly.Views.PinCardShow({
       model: pin,
-      des: boardpin.get('description'),
+      boardpin: boardpin,
       pinner: this.model.pinner,
       board: this.model
     });
@@ -80,7 +84,7 @@ Pinly.Views.BoardsShow = Backbone.CompositeView.extend({
 	},
 
 	render: function(){
-		
+
 		var that = this;
 		var renderedContent = this.template({
 		  board: this.model,

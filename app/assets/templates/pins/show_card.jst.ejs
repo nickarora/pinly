@@ -1,6 +1,7 @@
 <div class='card'>
 	<div class='image-area'>
 		<button class='pin-button btn btn-danger'>Pin it</button>
+		<button class='like-button btn btn-default'><i class="fa fa-heart"></i></button>
 		<a href='' class='enlarge-pin'></a>
 	</div>
 	<div class="from">
@@ -8,6 +9,11 @@
 		<a href="<%= pin.escape('url') %>">
 			<%= dom %>
 		</a>
+		<span class='like-count'>
+		<% if (numLiked) { %>
+			<p><i class="fa fa-heart red"></i> <span class='like-count-num'><%= numLiked %></span></p>
+		<% } %>
+		</span>
 	</div>
 	<div class="pin-description">
 		<%= description %>

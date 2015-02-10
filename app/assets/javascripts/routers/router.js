@@ -44,6 +44,7 @@ Pinly.Routers.Router = Backbone.Router.extend({
 	},
 
 	showBoard: function(id){
+		
 		var board = Pinly.Collections.boards.getOrFetch(id);
 
 		var showBoardView = new Pinly.Views.BoardsShow({

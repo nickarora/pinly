@@ -7,7 +7,7 @@ Pinly.Views.PinBig = Backbone.CompositeView.extend({
 	initialize: function(options){
 		this.model = options.model;
 		this.pinner = options.pinner;
-		this.des = options.des;
+		this.boardpin = options.boardpin;
 		this.board = options.board;
 
 		this.listenTo(this.board, 'sync', this.render);
@@ -41,7 +41,7 @@ Pinly.Views.PinBig = Backbone.CompositeView.extend({
 		var renderedContent = this.template({
 		  pin: this.model,
 		  dom: shortDom,
-		  description: this.des,
+		  description: this.boardpin.get('description'),
 		  pinner: this.pinner,
 		  board: title
 		});
