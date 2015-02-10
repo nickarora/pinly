@@ -6,12 +6,17 @@ Pinly.Views.PinCardShow = Backbone.CompositeView.extend({
 
 	initialize: function(options) {
 		this.model = options.model;
-		this.pinner = options.pinner;
-		this.boardpin = options.boardpin
+		this.boardpin = options.boardpin;
 		this.board = options.board;
+		this.user = options.user;
+		this.pinner = options.pinner;
 
 		this.listenTo(this.board, 'sync', this.render);
 		this.listenTo(this.boardpin.liked(), 'add remove', this.updateLikeIcon);
+
+		this.avatarSettings = { radius: "max", 
+														width: 34, height: 34, 
+														crop: "thumb", gravity: "face" };
 	},
 
 	events: {
@@ -102,6 +107,7 @@ Pinly.Views.PinCardShow = Backbone.CompositeView.extend({
 
 		this.$el.html(renderedContent);
 		this.renderImage();
+		this.renderAvatar();
 		this.updateLikeIconColor();
 		this.$(".pin-description").dotdotdot();
 
@@ -141,6 +147,11 @@ Pinly.Views.PinCardShow = Backbone.CompositeView.extend({
 	renderImage: function(){
 		var $img = $.cloudinary.image(this.model.get('cloudinary_id'), { width: 235, crop: 'fit' });
 		this.$('.enlarge-pin').html($img);
+	},
+
+	renderAvatar: function(){
+		var $img = $.cloudinary.image(this.user.get('cloudinary_id'), this.avatarSettings );
+		this.$('.card-avatar').html($img);
 	},
 
 	biggify: function(event) {

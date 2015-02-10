@@ -5,17 +5,9 @@ Pinly.Views.Feed = Backbone.CompositeView.extend({
 
 	initialize: function(options){
 
-		if (options.search){
-			this.collection = options.collection;
-			this.collection.reset();
-		}
-		
+		this.collection.reset();
 		this.listenTo(this.collection, 'sync add', this.render);
 		this.listenTo(this.collection, 'add', this.addPin);
-
-		this.collection.each(function(pin){
-			this.addPin(pin);
-		}, this);
 		
 		// get more pages if need be
 		$(window).on('scroll', this.scrollHandler.bind(this));
@@ -50,8 +42,9 @@ Pinly.Views.Feed = Backbone.CompositeView.extend({
 		var view = new Pinly.Views.PinCardShow({
       model: feedPost.pin(),
       boardpin: feedPost,
-      pinner: feedPost.pinner,
-      board: feedPost.board()
+      board: feedPost.board(),
+      user: feedPost.user(),
+      pinner: feedPost.pinner
     });
 
     this.addSubview('.feed-list', view);

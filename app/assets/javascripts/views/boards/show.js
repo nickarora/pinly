@@ -55,8 +55,9 @@ Pinly.Views.BoardsShow = Backbone.CompositeView.extend({
 		var view = new Pinly.Views.PinCardShow({
       model: pin,
       boardpin: boardpin,
-      pinner: this.model.pinner,
-      board: this.model
+      board: this.model,
+      user: this.model.user(),
+      pinner: this.model.pinner
     });
 
     this.addSubview('.pins-list', view);

@@ -37,8 +37,7 @@ Pinly.Routers.Router = Backbone.Router.extend({
 		});
 
 		var feedView = new Pinly.Views.Feed({
-		  collection: Pinly.Collections.feedPosts,
-		  search: true
+		  collection: Pinly.Collections.feedPosts
 		});
 		
 		this._swapView(feedView);

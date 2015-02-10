@@ -16,7 +16,6 @@ Pinly.Views.UsersShow = Backbone.CompositeView.extend({
 		this.listenTo(this.model.boards(), 'remove', this.removeBoard);
 
 		$(window).on("resize", this.updateCSS.bind(this));
-		this.updateCSS({preventAnimate: true});
 
 		this.model.boards().each(function(board){
 			this.addBoard(board);
@@ -82,6 +81,7 @@ Pinly.Views.UsersShow = Backbone.CompositeView.extend({
 		});
 
 		this.$el.html(renderedContent);
+		this.updateCSS({preventAnimate: true});
 		this.renderAvatar();
 		this.attachSubviews();
 		return this;
