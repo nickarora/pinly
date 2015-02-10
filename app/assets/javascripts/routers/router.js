@@ -37,14 +37,15 @@ Pinly.Routers.Router = Backbone.Router.extend({
 		});
 
 		var feedView = new Pinly.Views.Feed({
-		  collection: Pinly.Collections.feedPosts
+		  collection: Pinly.Collections.feedPosts,
+		  search: true
 		});
 		
 		this._swapView(feedView);
 	},
 
 	showBoard: function(id){
-		
+
 		var board = Pinly.Collections.boards.getOrFetch(id);
 
 		var showBoardView = new Pinly.Views.BoardsShow({

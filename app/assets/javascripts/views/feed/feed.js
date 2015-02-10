@@ -3,14 +3,20 @@ Pinly.Views.Feed = Backbone.CompositeView.extend({
 	template: JST['feed/feed'],
 	className: 'feed',
 
-	initialize: function(){
+	initialize: function(options){
+
+		if (options.search){
+			this.collection = options.collection;
+			this.collection.reset();
+		}
+		
 		this.listenTo(this.collection, 'sync add', this.render);
 		this.listenTo(this.collection, 'add', this.addPin);
 
 		this.collection.each(function(pin){
 			this.addPin(pin);
 		}, this);
-
+		
 		// get more pages if need be
 		$(window).on('scroll', this.scrollHandler.bind(this));
 
