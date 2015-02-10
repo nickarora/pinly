@@ -56,6 +56,7 @@ Pinly.Views.Header = Backbone.CompositeView.extend({
 		this.$el.html(renderedContent);
 		this.$('.search').tokenField({ regex: /\w+/, max: 6 });
 		this.renderAvatar();
+		this.updateCSS({ preventAnimate: true});
 		return this;
 	},
 
@@ -74,8 +75,10 @@ Pinly.Views.Header = Backbone.CompositeView.extend({
 		if (vpWidth >= 740) {
 			if (!options.preventAnimate) {
 				this.$el.animate( { width: this.getWidth() } , { duration:500, queue: false} );	
+				this.$('.token-field').animate( { 'width': this.getWidth() - 340 }, { duration: 500, queue: false});
 			} else {
 				this.$el.css('width', this.getWidth());
+				this.$('.token-field').css('width', this.getWidth() - 340);
 			}
 		}
 	},
