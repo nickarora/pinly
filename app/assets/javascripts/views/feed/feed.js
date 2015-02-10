@@ -55,7 +55,7 @@ Pinly.Views.Feed = Backbone.CompositeView.extend({
 
 		$container.masonry({
 			columnWidth: 235,
-			"gutter": 10,
+			"gutter": 15,
 			"isFitWidth": true,
 		  itemSelector: '.pin-child',
 		  transitionDuration: 0,

@@ -48,6 +48,10 @@
 	margin-right: 4px;
 }
 
+.card-avatar img {
+	border-radius: 50%;
+}
+
 .from .fa-pinterest {
 	font-size: 14px;
 }
@@ -81,6 +85,8 @@
 	padding-left: 10px;
 	padding-right: 10px;
 	font-size: 13px;
+	line-height: 17px;
+	color: #333;
 	border-top: 1px solid #e7e7e7;
 	width: 235px;
 	min-height: 30px;
