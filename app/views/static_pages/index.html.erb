@@ -3,7 +3,8 @@
 		username: '<%= current_user.try(:username)  %>', 
 		fname: '<%= current_user.try(:fname)  %>',
 		lname: '<%= current_user.try(:lname)  %>',
-		id: '<%= current_user.try(:id) %>'
+		id: '<%= current_user.try(:id) %>',
+		cloudinary_id: '<%= current_user.try(:cloudinary_id) %>'
 	};
 </script>
 

@@ -27,7 +27,7 @@ module Api
     private
 
     def user_params
-      params.require(:user).permit(:fname, :lname, :description)
+      params.require(:user).permit(:fname, :lname, :description, :image_url, :cloudinary_id)
     end
 
   end

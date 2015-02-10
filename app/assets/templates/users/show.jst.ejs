@@ -5,9 +5,13 @@
 			<button class='btn btn-danger sign-out'>Sign Out</button>
 		<% } %>
 	</div>
-
-	<h3> <%= user.escape('fname') %> <%= user.escape('lname') %> </h3>
-	<p>  <%= user.escape('description') %> </p>
+	<div class="user-profile">
+		<div class='avatar'></div>
+		<h3> <%= user.escape('fname') %> <%= user.escape('lname') %> </h3>
+		<p>  <%= user.escape('description') %> </p>
+	</div>
+	<div class="user-stats">
+	</div>
 </div>
 
 <div class="boards-list"></div>

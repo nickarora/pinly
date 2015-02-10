@@ -7,7 +7,7 @@ Pinly.Routers.Router = Backbone.Router.extend({
 
 	routes: {
 		"": 										'feed',
-		"search/?*queryString": 	'search',
+		"search/?*queryString": 'search',
 		"boards/:id": 					'showBoard',
 		"boards/:id/edit": 			'editBoard',
 		"users/:id": 						'showUser',

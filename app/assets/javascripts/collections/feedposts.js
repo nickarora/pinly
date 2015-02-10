@@ -2,6 +2,7 @@ Pinly.Collections.FeedPosts = Backbone.Collection.extend({
 	
 	url: '/api/feeds',
 	model: Pinly.Models.FeedPost,
+	comparator: 'created_at',
 	
 	parse: function(payload) {
     

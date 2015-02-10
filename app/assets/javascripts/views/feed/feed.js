@@ -94,9 +94,9 @@ Pinly.Views.Feed = Backbone.CompositeView.extend({
 		var vpWidth = Math.ceil(vpWidth * 0.97);
 
 		if (vpWidth < 740){
-			$('.pins-list').masonry('unbindResize');
+			$('.feed-list').masonry('unbindResize');
 		} else {
-			$('.pins-list').masonry('bindResize');
+			$('.feed-list').masonry('bindResize');
 		}
 	}
 

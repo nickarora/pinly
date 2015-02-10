@@ -1,0 +1,42 @@
+.user-header {
+	background-color: white;
+	margin: auto;
+	text-align: center;
+	padding-top: 40px;
+	margin-bottom: 20px;
+	width: 100%;
+	color: #5f5f5f;
+}
+
+.user-controls {
+	height: 55px;
+	margin: auto;
+	width: 740px;
+}
+
+.user-controls button {
+	float:right;
+	margin-left: 2px;
+}
+
+.user-profile {
+	border-top: 1px solid #e7e7e7;
+	min-height: 135px;
+}
+
+.user-profile .avatar {
+	margin-top: -32px;
+}
+
+.user-stats {
+	border-top: 1px solid #e7e7e7;
+	height: 60px;
+
+	-webkit-box-shadow: 0px 2px 2px rgba(100, 100, 100, 0.19);
+	-moz-box-shadow:    0px 2px 2px rgba(100, 100, 100, 0.19);
+	box-shadow:         0px 2px 2px rgba(100, 100, 100, 0.19);
+}
+
+.boards-list {
+	margin-left: 2%;
+}

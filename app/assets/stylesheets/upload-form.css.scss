@@ -22,8 +22,35 @@
   overflow: hidden;
 }
 
+.file-drop-small {
+	position: relative;
+	height: 100px !important;
+	width: 100px !important;
+	color: #e9e9e9;
+
+	border-width: 2px;
+  border-style: dashed;
+  border-color: #ccc;
+  
+  text-align: center;
+  overflow: hidden;
+}
+
+.file-drop-small input {
+	opacity: 0;
+}
+
+.progress-small {
+	width: 100px;
+}
+
 .progress-bar {
 	background: #3498db;
+}
+
+.edit-profile {
+	padding-left: 2%;
+	padding-right: 2%;
 }
 
 .picture-selector {
