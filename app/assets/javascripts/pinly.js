@@ -12,7 +12,7 @@ window.Pinly = {
   }
 };
 
-$(document).ready(function(){
+$(document).ready(function(){ 
   Pinly.initialize();
 });
 

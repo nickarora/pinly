@@ -4,14 +4,17 @@ Pinly.Views.Header = Backbone.CompositeView.extend({
 	className: 'header-container',
 
 	initialize: function(){
-		 $(window).on("resize", this.updateCSS.bind(this));
-		 $(window).on('keypress', this.checkSearch.bind(this));
-		 this.updateCSS({preventAnimate: true});
+		$(window).on("resize", this.updateCSS.bind(this));
+		$(window).on('keypress', this.checkSearch.bind(this));
+		this.updateCSS({preventAnimate: true});
 
-		 $.cloudinary.config({ cloud_name: 'pinly', api_key: '938513664846214'});
-		 this.avatarSettings = { radius: "max", 
+		$.cloudinary.config({ cloud_name: 'pinly', api_key: '938513664846214'});
+		this.avatarSettings = { radius: "max", 
 														width: 18, height: 18, 
 														crop: "thumb", gravity: "face" };
+
+		this.listenTo(this.collection, 'add remove sync', this.updateNotificationButton);
+		window.setTimeout(this.updateNotifications.bind(this), 10000);
 	},
 
 	events: {
@@ -20,6 +23,23 @@ Pinly.Views.Header = Backbone.CompositeView.extend({
 		'blur .search': 'formHandler',
 		'click .search-button': 'searchHandler',
 		'click .notification-button': 'notificationHandler'
+	},
+
+	updateNotifications: function(){
+		this.collection.fetch();
+		window.setTimeout(this.updateNotifications.bind(this), 10000);
+	},
+
+	updateNotificationButton: function(){
+		var num = this.collection.length;
+		this.$('.num-notifications').empty();
+
+		if (this.collection.length){
+			this.$('.notification-button').css('color', '#cb2026');
+			this.$('.num-notifications').text(num);
+		} else {
+			this.$('.notification-button').css('color', '#999999');
+		}
 	},
 
 	searchHandler: function(event) {

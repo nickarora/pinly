@@ -90,7 +90,12 @@ Pinly.Routers.Router = Backbone.Router.extend({
 	},
 
 	header: function(){
-		var header = new Pinly.Views.Header();
+		var notifications = Pinly.Collections.notifications;
+
+		var header = new Pinly.Views.Header({
+			collection: notifications
+		});
+
 		return header
 	},
 
