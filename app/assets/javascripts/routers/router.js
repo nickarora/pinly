@@ -91,6 +91,7 @@ Pinly.Routers.Router = Backbone.Router.extend({
 
 	header: function(){
 		var notifications = Pinly.Collections.notifications;
+		notifications.fetch();
 		var header = new Pinly.Views.Header({
 			collection: notifications
 		});
