@@ -13,10 +13,9 @@ Pinly.Views.Header = Backbone.CompositeView.extend({
 														width: 18, height: 18, 
 														crop: "thumb", gravity: "face" };
 
-		this.listenTo(this.collection, 'add remove sync', this.updateNotificationButton);
+		this.listenTo(this.collection, 'add remove sync change', this.updateNotificationButton);
 
-		var channelName = 'pinly-channel-' + Pinly.CURRENT_USER.id
-		this.channel = pusher.subscribe(channelName);
+		this.channel = Pinly.channel;
 		this.channel.bind('notif-push', this.pushNotification.bind(this));
 	},
 
@@ -28,12 +27,15 @@ Pinly.Views.Header = Backbone.CompositeView.extend({
 		'click .notification-button': 'notificationHandler'
 	},
 
+	remove: function() {
+    this.channel.callbacks = new this.channel.callbacks.constructor();
+    Backbone.View.prototype.remove.call(this);
+	},
+
 	updateNotificationButton: function(){
-		console.log("updating!")
 		var num = this.collection.length;
 		this.$('.num-notifications').empty();
 
-		console.log("notifications: " + num)
 		if (this.collection.length){
 			this.$('.notification-button').css('color', '#cb2026');
 			this.$('.num-notifications').text(num);
@@ -43,7 +45,11 @@ Pinly.Views.Header = Backbone.CompositeView.extend({
 	},
 
 	pushNotification: function(data){
-		alert("GOT SOMETHING FORM PUSHER");
+		var num = this.collection.length + 1;
+		this.$('.num-notifications').empty();
+		this.$('.notification-button').css('color', '#cb2026');
+		this.$('.num-notifications').text(num);
+
 		this.collection.fetch();
 	},
 

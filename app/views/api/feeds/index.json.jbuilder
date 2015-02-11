@@ -16,10 +16,10 @@ unless(@boardpins.empty?)
 		end
 
 		json.user do
-			json.partial! "api/users/user", user: boardpin.board.user
+			json.partial! "api/users/user", user: boardpin.user
 		end
 
-		@pinner = boardpin.board.user.fname.capitalize + " " + boardpin.board.user.lname.capitalize
+		@pinner = boardpin.user.fname.capitalize + " " + boardpin.user.lname.capitalize
 		json.pinner @pinner
 
 		if boardpin.comments

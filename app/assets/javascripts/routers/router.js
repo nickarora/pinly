@@ -91,12 +91,10 @@ Pinly.Routers.Router = Backbone.Router.extend({
 
 	header: function(){
 		var notifications = Pinly.Collections.notifications;
-
 		var header = new Pinly.Views.Header({
 			collection: notifications
 		});
-
-		return header
+		return header;	
 	},
 
 	create: function(){
@@ -106,6 +104,9 @@ Pinly.Routers.Router = Backbone.Router.extend({
 
 	_swapView: function(view){
 		this._currentView && this._currentView.remove();
+		this.header().remove();
+		this.create().remove();
+
 		this._currentView = view;
 		this.$headerEl.html(this.header().render().$el);
 		this.$rootEl.html(view.render().$el);

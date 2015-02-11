@@ -5,7 +5,6 @@ module Api
       @comment = Comment.new(comment_params)
 
       if @comment.save
-        Pusher.trigger('pinly-channel-' + @comment.boardpin.user.id.to_s, 'notif-push', {:message => 'Comment saved!'});
         render json: @comment
       else
         render json: @comment.errors.full_messages, status: :unprocessable_entity

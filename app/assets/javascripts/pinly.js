@@ -13,6 +13,8 @@ window.Pinly = {
 };
 
 $(document).ready(function(){ 
+  var channelName = 'pinly-channel-' + Pinly.CURRENT_USER.id
+  Pinly.channel = pusher.subscribe(channelName);
   Pinly.initialize();
 });
 

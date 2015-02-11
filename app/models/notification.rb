@@ -18,4 +18,9 @@ class Notification < ActiveRecord::Base
 	belongs_to :boardpin
 	belongs_to :user
 
+	has_one :board, through: :boardpin, source: :board
+	has_one :pin, through: :boardpin, source: :pin
+
+	has_one :receiver, through: :board, source: :user
+
 end

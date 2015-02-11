@@ -2,7 +2,9 @@ module Api
   class UsersController < ApiController
 
     def show
-    	@user = User.find(params[:id])
+    	@user = User
+              .includes(:boards, :follows)
+              .find(params[:id])
     	@boards = @user.boards
       @follows = @user.follows
       

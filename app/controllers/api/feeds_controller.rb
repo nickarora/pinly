@@ -9,6 +9,7 @@ module Api
       	board_ids = Follow.where(user_id: current_user.id).pluck(:board_id)
       	
       	@boardpins = Boardpin
+          .includes(:board, :pin, :user, :comments)
 					.where(board_id: board_ids)
 					.order("created_at DESC")
 					.page(params[:page])

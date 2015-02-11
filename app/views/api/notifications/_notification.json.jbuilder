@@ -5,11 +5,11 @@ json.boardpin do
 end
 
 json.board do
-	json.partial! "api/boards/board", board: notification.boardpin.board
+	json.partial! "api/boards/board", board: notification.board
 end
 
 json.pin do
-	json.partial! "api/pins/pin", pin: notification.boardpin.pin
+	json.partial! "api/pins/pin", pin: notification.pin
 end
 
 json.user do

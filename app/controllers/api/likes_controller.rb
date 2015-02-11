@@ -5,7 +5,6 @@ module Api
       @like = Like.new(like_params)
 
       if @like.save
-        Pusher.trigger('pinly-channel-' + @like.boardpin.user.id.to_s, 'notif-push', {:message => 'Like saved!'});
         render json: @like
       else
         render json: @like.errors.full_messages, status: :unprocessable_entity

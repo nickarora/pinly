@@ -23,7 +23,7 @@ module Api
     end
 
     def show
-    	@board = Board.find(params[:id])
+    	@board = Board.includes(:user, :boardpins, :pins).find(params[:id])
       @user = @board.user
       @boardpins = @board.boardpins
       @pins = @board.pins
