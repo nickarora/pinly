@@ -4,19 +4,18 @@ window.Pinly = {
   Views: {},
   Routers: {},
   initialize: function() {
-  	new Pinly.Routers.Router({
+    
+    var channelName = 'pinly-channel-' + Pinly.CURRENT_USER.id
+    Pinly.channel = pusher.subscribe(channelName);
+  	
+    new Pinly.Routers.Router({
   		$rootEl: $("#content"),
       $headerEl: $('#header')
   	});
+
   	Backbone.history.start();
   }
 };
-
-$(document).ready(function(){ 
-  var channelName = 'pinly-channel-' + Pinly.CURRENT_USER.id
-  Pinly.channel = pusher.subscribe(channelName);
-  Pinly.initialize();
-});
 
 Pinly.validationPatterns = {
   digits: /^\d+$/,

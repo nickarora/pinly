@@ -1,16 +1,21 @@
 <script>
-    Pinly.CURRENT_USER = { 
-			username: '<%= current_user.try(:username)  %>', 
-			fname: '<%= current_user.try(:fname)  %>',
-			lname: '<%= current_user.try(:lname)  %>',
-			id: '<%= current_user.try(:id) %>',
-			image_url: '<%= current_user.try(:image_url) %>',
-			cloudinary_id: '<%= current_user.try(:cloudinary_id) %>'
-		};
+  Pinly.CURRENT_USER = { 
+		username: '<%= current_user.try(:username)  %>', 
+		fname: '<%= current_user.try(:fname)  %>',
+		lname: '<%= current_user.try(:lname)  %>',
+		id: '<%= current_user.try(:id) %>',
+		image_url: '<%= current_user.try(:image_url) %>',
+		cloudinary_id: '<%= current_user.try(:cloudinary_id) %>'
+	};
 
-		window.pusher = new Pusher('5a5cd969db27d9916abf');
+	window.pusher = new Pusher('5a5cd969db27d9916abf');
+
+	$(document).ready(function(){ 
+	  Pinly.initialize();
+	});
 </script>
 
 <div id="header"></div>
 <div id="content"></div>
 <div id="create-icon"></div>
+
