@@ -5,6 +5,11 @@ module Api
       @notification = Notification.new(notification_params)
       
       if @notification.save
+        
+        puts "Hello, logs!"
+        puts @notification.receiver.id.to_s
+        puts 'pinly-channel-' + @notification.receiver.id.to_s
+
         # Pusher.trigger('pinly-channel-' + @notification.receiver.id.to_s, 'notif-push', {:message => 'notification saved!'});
         render json: @notification
       else
