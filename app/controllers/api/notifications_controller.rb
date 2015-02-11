@@ -5,8 +5,11 @@ module Api
       @notification = Notification.new(notification_params)
       
       if @notification.save
-        ch = 'pinly-channel-' + @notification.receiver.id.to_s
-        Pusher.trigger('test', 'notif-push', {:message => 'notification saved!'});
+        puts "TESTING--------"
+        ch = "pinly-channel-#{@notification.receiver.id}"
+        puts ch
+        Pusher[ch].trigger('notif-push', {})
+        # Pusher.trigger('test', 'notif-push', {:message => 'notification saved!'});
         render json: @notification
       else
         render json: @notification.errors.full_messages, status: :unprocessable_entity
