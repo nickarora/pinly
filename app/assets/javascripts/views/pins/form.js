@@ -26,12 +26,12 @@ Pinly.Views.PinsForm = Backbone.CompositeView.extend({
 
 			}).bind('cloudinarydone', function(e, data) {
 
-				that.$('.file-drop-small').css('background-color', '#312c2d');
+				that.$('.file-drop').css('background-color', '#312c2d');
 				that.$('.cloudinary_fileupload').css('background-color', '#312c2d');
 				
 				var picId = data.result.public_id;
-				var $img = $.cloudinary.image( picId, { width: 100, height: 100, crop: 'fit' });
-    		that.$('.file-drop-small').html($img);
+				var $img = $.cloudinary.image( picId, { width: 364, height: 250, crop: 'fit' });
+    		that.$('.file-drop').html($img);
 
     		that.model.set('image_url', data.result.url);
     		that.model.set('cloudinary_id', data.result.public_id);
