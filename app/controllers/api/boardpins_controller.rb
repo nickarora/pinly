@@ -4,6 +4,8 @@ module Api
   	def create
       @boardpin = Boardpin.new(boardpin_params)
 
+      @boardpin.valid?
+      puts @boardpin.errors.full_messages
       if @boardpin.save
         render json: @boardpin
       else
