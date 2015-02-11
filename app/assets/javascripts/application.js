@@ -24,6 +24,7 @@
 //= require jquery.dotdotdot.min
 //= require jquery.token-field
 
+//= require pusher.min
 //= require masonry.pkgd.min
 //= require imagesloaded.pkgd.min
 

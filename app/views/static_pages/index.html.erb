@@ -7,6 +7,8 @@
 			image_url: '<%= current_user.try(:image_url) %>',
 			cloudinary_id: '<%= current_user.try(:cloudinary_id) %>'
 		};
+
+		window.pusher = new Pusher('5a5cd969db27d9916abf');
 </script>
 
 <div id="header"></div>

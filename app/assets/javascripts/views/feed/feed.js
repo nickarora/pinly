@@ -23,9 +23,9 @@ Pinly.Views.Feed = Backbone.CompositeView.extend({
 	scrollHandler: function(event){
 		event.preventDefault();
 		
-		if (document.body.scrollHeight == 
-	      document.body.scrollTop +        
-	      window.innerHeight) {
+		if (document.body.scrollHeight >= 
+	      Math.floor((.75 * (document.body.scrollTop + window.innerHeight)))  ) 
+			{
 
       if (this.collection.page < this.collection.total_pages) {
         this.collection.page++;

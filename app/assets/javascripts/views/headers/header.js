@@ -14,7 +14,10 @@ Pinly.Views.Header = Backbone.CompositeView.extend({
 														crop: "thumb", gravity: "face" };
 
 		this.listenTo(this.collection, 'add remove sync', this.updateNotificationButton);
-		window.setTimeout(this.updateNotifications.bind(this), 10000);
+
+		var channelName = 'pinly-channel-' + Pinly.CURRENT_USER.id
+		this.channel = pusher.subscribe(channelName);
+		this.channel.bind('notif-push', this.pushNotification.bind(this));
 	},
 
 	events: {
@@ -25,21 +28,23 @@ Pinly.Views.Header = Backbone.CompositeView.extend({
 		'click .notification-button': 'notificationHandler'
 	},
 
-	updateNotifications: function(){
-		this.collection.fetch();
-		window.setTimeout(this.updateNotifications.bind(this), 10000);
-	},
-
 	updateNotificationButton: function(){
+		console.log("updating!")
 		var num = this.collection.length;
 		this.$('.num-notifications').empty();
 
+		console.log("notifications: " + num)
 		if (this.collection.length){
 			this.$('.notification-button').css('color', '#cb2026');
 			this.$('.num-notifications').text(num);
 		} else {
 			this.$('.notification-button').css('color', '#999999');
 		}
+	},
+
+	pushNotification: function(data){
+		alert("GOT SOMETHING FORM PUSHER");
+		this.collection.fetch();
 	},
 
 	searchHandler: function(event) {

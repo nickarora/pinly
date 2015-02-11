@@ -17,6 +17,7 @@ gem 'newrelic_rpm'
 gem "figaro"
 gem 'kaminari'
 gem 'sunspot_rails'
+gem 'pusher'
 
 group :development, :test do
   gem 'byebug'
