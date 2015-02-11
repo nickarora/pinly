@@ -65,6 +65,15 @@ Pinly.Views.PinCardShow = Backbone.CompositeView.extend({
 			like.save({}, {
 				success: function(){
 					that.boardpin.liked().add(like);
+
+					/* send notification */
+					var notif = new Pinly.Models.Notification();
+					notif.save({
+						message: Pinly.CURRENT_USER.fname + " " + Pinly.CURRENT_USER.lname + " liked your post!",
+						boardpin_id: that.boardpin.id,
+						user_id: that.user.id
+					});
+					/* --- */
 				}
 			});
 		}
@@ -161,7 +170,8 @@ Pinly.Views.PinCardShow = Backbone.CompositeView.extend({
 		  model: this.model,
 			pinner: this.pinner,
 			boardpin: this.boardpin, 
-			board: this.board
+			board: this.board,
+			user: this.user,
 		});
 
 		view.open();

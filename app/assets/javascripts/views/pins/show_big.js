@@ -11,6 +11,7 @@ Pinly.Views.PinBig = Backbone.CompositeView.extend({
 		this.pinner = options.pinner;
 		this.boardpin = options.boardpin;
 		this.board = options.board;
+		this.user = options.user;
 
 		this.listenTo(this.board, 'sync', this.render);
 		this.listenTo(this.boardpin.comments(), 'add', this.addComment);
@@ -52,6 +53,16 @@ Pinly.Views.PinBig = Backbone.CompositeView.extend({
 			success: function(result){
 				result.user().set(Pinly.CURRENT_USER);
 				that.boardpin.comments().add(result);
+
+				/* send notification */
+				var notif = new Pinly.Models.Notification();
+				debugger
+				notif.save({
+					message: Pinly.CURRENT_USER.fname + " " + Pinly.CURRENT_USER.lname + " commented on your post!",
+					boardpin_id: that.boardpin.id,
+					user_id: that.user.id
+				});
+				/* --- */
 			}
 		});
 	},

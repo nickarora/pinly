@@ -19,6 +19,7 @@ Pinly.Views.Header = Backbone.CompositeView.extend({
 		'click .logo': 'showHome',
 		'blur .search': 'formHandler',
 		'click .search-button': 'searchHandler',
+		'click .notification-button': 'notificationHandler'
 	},
 
 	searchHandler: function(event) {
@@ -37,6 +38,10 @@ Pinly.Views.Header = Backbone.CompositeView.extend({
     if( keycode == '13') {
   		$( ".search-button" ).trigger( "click" );
     }
+	},
+
+	notificationHandler: function(){
+		Backbone.history.navigate('#/notifications', {trigger: true});
 	},
 
 	showProfile: function(event){

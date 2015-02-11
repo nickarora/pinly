@@ -5,7 +5,7 @@
 #  id          :integer          not null, primary key
 #  boardpin_id :integer          not null
 #  user_id     :integer          not null
-#  comment     :text             not null
+#  body        :text             not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

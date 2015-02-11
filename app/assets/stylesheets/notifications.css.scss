@@ -1,0 +1,13 @@
+.notifications {
+	padding: 60px 0 0 0;
+	list-style-type: none;
+}
+
+.notifications li {
+	cursor: pointer;
+}
+
+.notifications li:hover {
+	background-color: #cb2026;
+	color: white;
+}

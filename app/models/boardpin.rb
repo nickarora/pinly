@@ -23,6 +23,8 @@ class Boardpin < ActiveRecord::Base
 
   has_many :comments, dependent: :destroy
 
+  has_many :notifications, dependent: :destroy
+
 	searchable do
 		text :description
 	end

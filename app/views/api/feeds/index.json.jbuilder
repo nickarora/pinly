@@ -20,7 +20,6 @@ unless(@boardpins.empty?)
 		end
 
 		@pinner = boardpin.board.user.fname.capitalize + " " + boardpin.board.user.lname.capitalize
-
 		json.pinner @pinner
 
 		if boardpin.comments

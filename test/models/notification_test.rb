@@ -1,20 +1,20 @@
 # == Schema Information
 #
-# Table name: comments
+# Table name: notifications
 #
 #  id          :integer          not null, primary key
+#  status      :string           default("unviewed")
+#  message     :string           not null
 #  boardpin_id :integer          not null
 #  user_id     :integer          not null
-#  body        :text             not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
 
-class Comment < ActiveRecord::Base
+require 'test_helper'
 
-	validates :boardpin, :user, :body, presence: true
-
-	belongs_to :boardpin
-	belongs_to :user
-
+class NotificationTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
 end

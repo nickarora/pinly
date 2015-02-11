@@ -1,18 +1,19 @@
 # == Schema Information
 #
-# Table name: comments
+# Table name: notifications
 #
 #  id          :integer          not null, primary key
+#  status      :string           default("unviewed")
+#  message     :string           not null
 #  boardpin_id :integer          not null
 #  user_id     :integer          not null
-#  body        :text             not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
 
-class Comment < ActiveRecord::Base
+class Notification < ActiveRecord::Base
 
-	validates :boardpin, :user, :body, presence: true
+	validates :message, :boardpin, :user, presence: true
 
 	belongs_to :boardpin
 	belongs_to :user
