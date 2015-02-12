@@ -4,6 +4,36 @@
 	text-align: center;
 	padding-top: 40px;
 	margin-bottom: 20px;
-	height: 160px;
 	width: 100%
+}
+
+.board-profile-container {
+	margin: auto;
+	border-top: 1px solid #eee;
+	height: 60px;
+	line-height: 60px;
+	font-size: 16px;
+}
+
+.board-title-container {
+		margin-bottom: 20px;
+}
+
+.board-profile-container .left{
+		float:left;
+}
+
+.board-profile-container .board-avatar {
+	float: left;
+}
+
+.board-profile-container img {
+	float: left;
+	margin-top: 14px;
+	margin-right: 5px;
+}
+
+
+.board-profile-container .right{
+		float:right;
 }

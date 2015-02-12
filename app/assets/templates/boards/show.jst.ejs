@@ -1,7 +1,21 @@
 <div class='board-header'>
-	<h3><%= board.escape('title') %></h3>
-	<div class='board-description'><%= board.escape('description') %></div>
-	<button class="follow btn btn-default"><%= followMsg %></button>
+
+	<div class='board-title-container'>
+		<h3><%= board.escape('title') %></h3>
+		<div class='board-description'><%= board.escape('description') %></div>
+	</div>
+
+	<div class='board-profile-container'>
+		<div class='left'>
+			<div class='board-avatar'></div><%= this.model.user().escape('fname') %> <%= this.model.user().escape('lname') %>
+		</div>
+
+		<div class='right'>
+			<button class="follow btn btn-default"><%= followMsg %></button>
+		</div>
+	</div>
+
 </div>
+
 
 <div class='pins-list'></div>

@@ -13,7 +13,12 @@ Pinly.Views.BoardsShow = Backbone.CompositeView.extend({
 		}, this);
 
 		// no less than three columns
+		$(window).on("resize", this.updateCSS.bind(this));
 		$(window).on("resize", this.updateMasonry.bind(this));
+
+		this.avatarSettings = { radius: "max", 
+														width: 32, height: 32, 
+														crop: "thumb", gravity: "face" };
 
 		// required for upload to cloudinary
 		$.cloudinary.config({ cloud_name: 'pinly', api_key: '938513664846214'});
@@ -101,6 +106,9 @@ Pinly.Views.BoardsShow = Backbone.CompositeView.extend({
   		that.renderMasonry();
 		});
 
+		this.renderAvatar();
+		this.updateCSS({ preventAnimate: true });
+
 		return this;
 	},
 
@@ -110,6 +118,33 @@ Pinly.Views.BoardsShow = Backbone.CompositeView.extend({
 		} else {
 			return 'Follow';
 		}
+	},
+
+	updateCSS: function(options){
+		var vpWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+		var vpWidth = Math.ceil(vpWidth * 0.97);
+		if (vpWidth >= 740) {
+			if (!options.preventAnimate) {
+				this.$('.board-profile-container').animate( { width: this.getWidth() } , { duration:500, queue: false} );	
+			} else {
+				this.$('.board-profile-container').css('width', this.getWidth());
+			}
+		}
+	},
+
+	getWidth: function(){
+		var vpWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+		var vpWidth = Math.ceil(vpWidth * 0.97);
+		var numOfCols = Math.floor(vpWidth/245);
+		return numOfCols * 245;
+	},
+
+	renderAvatar: function(){
+		var avatar = this.model.user().get('cloudinary_id');
+		if (avatar){
+			var $img = $.cloudinary.image(avatar, this.avatarSettings);
+			this.$('.board-avatar').html($img);
+		}	
 	},
 
 	updateMasonry: function(){

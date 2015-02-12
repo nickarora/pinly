@@ -18,6 +18,7 @@ gem "figaro"
 gem 'kaminari'
 gem 'sunspot_rails'
 gem 'pusher'
+gem 'seed_dump'
 
 group :development, :test do
   gem 'byebug'
