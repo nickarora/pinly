@@ -140,10 +140,13 @@ Pinly.Views.BoardsShow = Backbone.CompositeView.extend({
 	},
 
 	renderAvatar: function(){
+		var $link = $('<a>')
+		$link.attr('href', '#/users/' + this.model.user().id);
 		var avatar = this.model.user().get('cloudinary_id');
 		if (avatar){
 			var $img = $.cloudinary.image(avatar, this.avatarSettings);
-			this.$('.board-avatar').html($img);
+			$link.html($img);
+			this.$('.board-avatar').html($link);
 		}	
 	},
 

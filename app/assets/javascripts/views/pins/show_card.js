@@ -160,8 +160,11 @@ Pinly.Views.PinCardShow = Backbone.CompositeView.extend({
 	},
 
 	renderAvatar: function(){
+		var $link = $('<a>')
+		$link.attr('href', '#/users/' + this.user.id);
 		var $img = $.cloudinary.image(this.user.get('cloudinary_id'), this.avatarSettings );
-		this.$('.card-avatar').html($img);
+		$link.html($img);
+		this.$('.card-avatar').html($link);
 	},
 
 	biggify: function(event) {

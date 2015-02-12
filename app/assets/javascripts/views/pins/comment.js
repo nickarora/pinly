@@ -22,9 +22,12 @@ Pinly.Views.Comment = Backbone.CompositeView.extend({
 	},
 
 	renderAvatar: function(){
+		var $link = $('<a>')
+		$link.attr('href', '#/users/' + this.model.user().id);
 		var $img = $.cloudinary.image(this.model.user().get('cloudinary_id'), 
 																	this.avatarSettings );
-		this.$('.comment-avatar').html($img);
+		$link.html($img);
+		this.$('.comment-avatar').html($link);
 	}
 
 });

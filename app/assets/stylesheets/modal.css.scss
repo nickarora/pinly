@@ -71,6 +71,9 @@
 }
 
 /* Styling for Upload Modals */
+.modal {
+  z-index: 100;
+}
 
 .modal-upload {
 	width: 400px;
