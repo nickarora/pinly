@@ -11,10 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.ui.all
 //= require jquery_ujs
-//= require jquery.ui.sortable
 
-//= require jquery.ui.widget
 //= require jquery.iframe-transport
 //= require jquery.fileupload
 //= require jquery.cloudinary

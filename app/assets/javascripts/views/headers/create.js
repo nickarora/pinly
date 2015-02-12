@@ -3,6 +3,8 @@ Pinly.Views.CreateIcon = Backbone.CompositeView.extend({
 	template: JST['header/create'],
 
 	initialize: function() {
+		var that = this;
+		
 		$(':not(.drop-up)').click(this.hideMenu.bind(this));
 	},
 

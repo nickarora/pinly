@@ -5,24 +5,30 @@
 		<button class="cancel-modal btn btn-danger"><i class="fa fa-arrow-circle-left"></i></button>
 		<div class="left">
 			<a href='<%= pin.escape('url') %>' class='big-image'></a>
+			<div class="backdrop-text">
+				<div class="overlay-text">Found on <%= dom %></div>
+			</div>
 		</div>
 		<div class="right">
 			<div class="right-container">
-				<p>Found on <%= dom %></p>
-				<p><%= pinner %></p>
-				<p><%= description %></p>
-				<p><%= board %></p>
-				<ul class="comments"></ul>
-				
-				<form class='comment-form'>
-					<div class='form-group'>
-						<textarea name='comment[body]' class="form-control"
-						placeholder='Add a Comment...'></textarea>
+				<div class="icons-wrapper">
+					<div class="icons">
+						<div class="pin"><i class="fa fa-pinterest"></i></div>
+						<div class="like"><i class="fa fa-heart"></i></div>
 					</div>
-					<div class='form-group'>
-						<button class='btn btn-default'>Post</button>
-					</div>
-				</form>
+				</div>
+				<div class='content-wrapper'>
+					<p class='by-line'>Pinned by <a href="#/users/<%= user.id %>"><%= pinner %></a> in <a href="#/boards/<%= board.id %>"><%= board.escape('title') %></a></p>
+					<p><%= description %></p>
+					<ul class="comments"></ul>
+					<form class='comment-form'>
+						<div class='form-group'>
+							<textarea name='comment[body]' class="form-control"
+							placeholder='Add a Comment...'></textarea>
+							<button class='btn btn-default form-control'>Post</button>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>

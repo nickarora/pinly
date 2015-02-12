@@ -175,3 +175,82 @@
 	border-top-right-radius: 0px;
 	z-index: 2000;
 }
+
+.big-card .left .overlay-text {
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+  color: white;
+}
+
+.big-card .left .backdrop-text {
+	display: none;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 500px;
+	height: 50px;
+	background: rgba(66,66,66,0.7);
+	border-bottom-left-radius: 20px;
+}
+
+.big-card .right .icons-wrapper {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	border-top-right-radius: 20px;
+	border-top-left-radius: 20px;
+	height: 50px;
+	width: 280px;
+	background-color: #e7e7e7;
+}
+
+.big-card .right .icons {
+	position: absolute;
+	top: -2px;
+	left: 102px;
+}
+
+.big-card .right .icons .like, .big-card .right .icons .pin {
+	font-size: 40px;
+	display: inline;
+}
+
+.big-card .right .content-wrapper {
+	position: absolute;
+	width: 280px; 
+	height: 425px;
+	top: 65px;
+	left: 10px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	color: #333;
+}
+
+.big-card .right .by-line {
+	font-size: 8px;
+	text-transform: uppercase;
+	text-align: left;
+	border-bottom: 1px solid #eee;
+}
+
+.big-card .right form textarea {
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;	
+	border-bottom: 0;
+}
+
+.big-card .right form button {
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;	
+}
+
+.big-card .right .pin {
+	transition-property: color;
+  transition-duration: 0.5s;
+  transition-timing-function: linear;
+}
+
+.big-card .right .pin:hover {
+	color: #cb2026;
+}

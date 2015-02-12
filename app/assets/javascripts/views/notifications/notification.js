@@ -11,7 +11,16 @@ Pinly.Views.Notification = Backbone.CompositeView.extend({
 	},
 
 	events: {
+		'click .notification-avatar': 'viewUser',
 		'click': 'viewPin'
+	},
+
+	viewUser: function(event){
+		event.preventDefault();
+		event.stopPropagation();
+		$('.modal').trigger('close-event');
+		Backbone.history.navigate('#/users/' + this.model.user().id,
+		 {trigger: true});
 	},
 
 	viewPin: function(event){
