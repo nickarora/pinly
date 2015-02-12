@@ -1,9 +1,11 @@
 <div class='user-header'>
-	<div class="user-controls">
-		<% if (Pinly.CURRENT_USER.username == user.escape('username')) { %>
-			<button class='btn btn-danger edit-profile'>Edit Profie</button>
-			<button class='btn btn-danger sign-out'>Sign Out</button>
-		<% } %>
+	<div class='user-controls-wrapper'>
+		<div class="user-controls">
+			<% if (Pinly.CURRENT_USER.username == user.escape('username')) { %>
+				<button class='btn btn-danger edit-profile'>Edit Profie</button>
+				<button class='btn btn-danger sign-out'>Sign Out</button>
+			<% } %>
+		</div>
 	</div>
 	<div class="user-profile">
 		<div class='avatar'></div>
