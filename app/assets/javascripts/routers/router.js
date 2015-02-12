@@ -9,9 +9,7 @@ Pinly.Routers.Router = Backbone.Router.extend({
 		"": 										'feed',
 		"search/?*queryString": 'search',
 		"boards/:id": 					'showBoard',
-		"boards/:id/edit": 			'editBoard',
-		"users/:id": 						'showUser',
-		"notifications": 				'notificationIndex'
+		"users/:id": 						'showUser'
 	},
 
 	feed: function(){
@@ -54,18 +52,6 @@ Pinly.Routers.Router = Backbone.Router.extend({
 		this._swapView(showBoardView);
 	},
 
-	editBoard: function(id){
-
-		var board = Pinly.Collections.boards.getOrFetch(id);
-
-		var editBoardView = new Pinly.Views.BoardsForm({
-		  collection: Pinly.Collections.boards,
-		  model: board
-		});
-
-		this._swapView(editBoardView);
-	},
-
 	showUser: function(id){
 		var user = Pinly.Collections.users.getOrFetch(id);
 		
@@ -74,19 +60,6 @@ Pinly.Routers.Router = Backbone.Router.extend({
 		});
 
 		this._swapView(userView);
-	},
-
-	notificationIndex: function(){
-
-		var notifications = Pinly.Collections.notifications;
-		notifications.fetch();
-
-		var notificationView = new Pinly.Views.NotificationIndex({
-			collection: notifications
-		});
-
-		this._swapView(notificationView);
-
 	},
 
 	header: function(){
