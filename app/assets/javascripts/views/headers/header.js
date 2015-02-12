@@ -6,6 +6,7 @@ Pinly.Views.Header = Backbone.CompositeView.extend({
 	initialize: function(){
 		$(window).on("resize", this.updateCSS.bind(this));
 		$(window).on('keypress', this.checkSearch.bind(this));
+
 		this.updateCSS({preventAnimate: true});
 
 		$.cloudinary.config({ cloud_name: 'pinly', api_key: '938513664846214'});
@@ -72,7 +73,21 @@ Pinly.Views.Header = Backbone.CompositeView.extend({
 	},
 
 	notificationHandler: function(){
-		Backbone.history.navigate('#/notifications', {trigger: true});
+		// Backbone.history.navigate('#/notifications', {trigger: true});
+		event.preventDefault();
+		
+		if (Backbone.BootstrapModal.count) {return;}
+
+		this.collection.fetch();
+		var notificationView = new Pinly.Views.NotificationIndex({
+			collection: this.collection
+		});
+
+		var modal = new Backbone.BootstrapModal({ 
+			content: notificationView,
+			style: 'modal-upload'
+		}).open();
+
 	},
 
 	showProfile: function(event){
@@ -90,6 +105,7 @@ Pinly.Views.Header = Backbone.CompositeView.extend({
 	render: function(){
 		var renderedContent = this.template();
 		this.$el.html(renderedContent);
+		this.attachSubviews();
 		this.$('.search').tokenField({ regex: /\w+/, max: 6 });
 		this.renderAvatar();
 		this.updateCSS({ preventAnimate: true});

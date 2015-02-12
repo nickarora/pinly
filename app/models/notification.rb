@@ -17,10 +17,14 @@ class Notification < ActiveRecord::Base
 
 	belongs_to :boardpin
 	belongs_to :user
+	belongs_to(
+	  :receiver,
+	  class_name: 'User',
+	  foreign_key: :receiver_id,
+	  primary_key: :id)
+	
 
 	has_one :board, through: :boardpin, source: :board
 	has_one :pin, through: :boardpin, source: :pin
-
-	has_one :receiver, through: :board, source: :user
 
 end

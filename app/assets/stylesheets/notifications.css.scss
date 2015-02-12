@@ -1,13 +1,40 @@
+.notifications-wrapper {
+	width: 367;
+	height: 415px;
+	padding: 0 0 0 0;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
 .notifications {
-	padding: 60px 0 0 0;
+	width: 367px;
+	height: 415px;
+	padding: 0 0 0 0;
+	overflow-x: hidden;
+	overflow-y: scroll;
 	list-style-type: none;
 }
 
 .notifications li {
 	cursor: pointer;
+	height: 60px;
+	line-height: 60px;
 }
 
 .notifications li:hover {
-	background-color: #cb2026;
-	color: white;
+	background-color: #e7e7e7;
+	color: #333;
+}
+
+.notifications li img {
+	margin: 0;
+	padding: 0;
+	border-radius: 50%;
+}
+
+h4 {
+	padding-top: 0;
+	margin-top: 0;
+	padding-left: 15px;
+	color: #999999
 }

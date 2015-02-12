@@ -5,11 +5,8 @@ module Api
       @notification = Notification.new(notification_params)
       
       if @notification.save
-        puts "TESTING--------"
         ch = "pinly-channel-#{@notification.receiver.id}"
-        puts ch
         Pusher[ch].trigger('notif-push', {})
-        # Pusher.trigger('test', 'notif-push', {:message => 'notification saved!'});
         render json: @notification
       else
         render json: @notification.errors.full_messages, status: :unprocessable_entity
@@ -24,15 +21,15 @@ module Api
 
     def index
       @notifications = Notification
-        .includes(:boardpin, :board, :pin, :user)
-        .where(user_id: current_user.id)
+        .includes(:boardpin, :board, :pin, :user, :receiver)
+        .where(receiver_id: current_user.id)
       render :index
     end
 
   	private
 
   	def notification_params
-  		params.require(:notification).permit(:message, :status, :boardpin_id, :user_id);
+  		params.require(:notification).permit(:message, :status, :boardpin_id, :user_id, :receiver_id);
   	end
 
   end

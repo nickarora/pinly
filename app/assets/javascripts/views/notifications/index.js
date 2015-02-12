@@ -1,6 +1,7 @@
 Pinly.Views.NotificationIndex = Backbone.CompositeView.extend({
 
 	template: JST['notifications/index'],
+	tagName: 'notifications-wrapper',
 
 	initialize: function(){
 		this.listenTo(this.collection, 'sync', this.render)

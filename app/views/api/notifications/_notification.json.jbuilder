@@ -16,6 +16,10 @@ json.user do
 	json.partial! "api/users/user", user: notification.user
 end
 
+json.receiver do
+	json.partial! "api/users/user", user: notification.receiver
+end
+
 @pinner = notification.user.fname.capitalize + " " + notification.user.lname.capitalize
 json.pinner @pinner
 

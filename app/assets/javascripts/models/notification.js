@@ -22,6 +22,11 @@ Pinly.Models.Notification = Backbone.Model.extend({
   	return this._user;
 	},
 
+	receiver: function(){
+		this._receiver = this._receiver || new Pinly.Models.User();
+  	return this._receiver;
+	},
+
 	parse: function(payload){
 		
 		if (payload.boardpin){
@@ -42,6 +47,11 @@ Pinly.Models.Notification = Backbone.Model.extend({
 		if (payload.user){
 			this.user().set(this.user().parse(payload.user));
 			delete payload.user;
+		}
+
+		if (payload.receiver){
+			this.receiver().set(this.receiver().parse(payload.receiver));
+			delete payload.receiver;
 		}
 
 		if (payload.pinner){

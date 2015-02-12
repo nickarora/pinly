@@ -71,7 +71,8 @@ Pinly.Views.PinCardShow = Backbone.CompositeView.extend({
 					notif.save({
 						message: Pinly.CURRENT_USER.fname + " " + Pinly.CURRENT_USER.lname + " liked your post!",
 						boardpin_id: that.boardpin.id,
-						user_id: that.user.id
+						user_id: Pinly.CURRENT_USER.id,
+						receiver_id: that.user.id
 					});
 					/* --- */
 				}
