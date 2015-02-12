@@ -18,6 +18,7 @@ Pinly.Views.BoardsItem = Backbone.CompositeView.extend({
 
 	followHandler: function(event){
 		event.preventDefault();
+		event.stopPropagation();
 		var that = this;
 
 		if ( this.model.follows().length ) {
@@ -52,7 +53,18 @@ Pinly.Views.BoardsItem = Backbone.CompositeView.extend({
 	editBoard: function(event){
 		event.preventDefault();
 		event.stopPropagation();
-		Backbone.history.navigate('#/boards/' + this.model.id + '/edit', {trigger: true});
+
+		var board = Pinly.Collections.boards.getOrFetch(this.model.id);
+
+		var editBoardView = new Pinly.Views.BoardsForm({
+		  collection: Pinly.Collections.boards,
+		  model: board
+		});
+
+		var modal = new Backbone.BootstrapModal({ 
+			content: editBoardView,
+			style: 'modal-upload'
+		}).open();
 	},
 
 	render: function(){

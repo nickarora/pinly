@@ -25,6 +25,7 @@
 
 //= require pusher.min
 //= require masonry.pkgd.min
+//= require packery.pkgd.min
 //= require imagesloaded.pkgd.min
 
 //= require underscore

@@ -42,8 +42,6 @@ Pinly.Views.UsersShow = Backbone.CompositeView.extend({
 			content: editView,
 			style: 'modal-upload'
 		}).open();
-
-		// Backbone.history.navigate('#/users/' + this.model.id + '/edit', {trigger: true});
 	},
 
 	removeBoard: function(board){
@@ -101,8 +99,10 @@ Pinly.Views.UsersShow = Backbone.CompositeView.extend({
 		if (vpWidth >= 740) {
 			if (!options.preventAnimate) {
 				this.$('.user-controls').animate( { width: this.getWidth() } , { duration:500, queue: false} );	
+				this.$('.boards-list').animate( { width: this.getWidth() } , { duration:500, queue: false} );	
 			} else {
 				this.$('.user-controls').css('width', this.getWidth());
+				this.$('.boards-list').css('width', this.getWidth());
 			}
 		}
 	},

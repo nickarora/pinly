@@ -3,35 +3,51 @@
 }
 
 .board-item-wrapper {
-	width: 250px;
+	width: 237px;
 	float: left;
 	margin-top: 10px;
 	margin-right: 10px;
 }
 
 .board-item-wrapper .follow-board-item {
-	width: 250px;
+	width: 100%;
 }
 
 .boards-item {
 	padding: 10px;
-	width: 250px;
-	height: 250px;
-	background-color: #cdcdcd;
+	width: 237px;
+	height: 300px;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 1px 2px #999999;
 
 	text-transform: uppercase;
 	letter-spacing: -1px;
-	font-size: 20px;
+	font-size: 16px;
 	font-weight: bold;
-	color: #BD362F;
+	color: #333;
 	line-height: 1em;
 }
 
 .boards-item p {
 	width: 150px;
+	height: 30px;
+	overflow-y: hidden;
 }
 
 .boards-item button {
 	float: right;
 	margin-left: 2px;
+	font-size: 12px;
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.board-image-previews {
+	width: 217px;
+	height: 215px;
+	margin-bottom: 2px;
+	background-color: blue;
 }

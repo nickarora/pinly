@@ -1,7 +1,8 @@
 <div class='boards-item'>
-	<button class='btn btn-danger delete'>X</button>
-	<button class='btn btn-primary edit'>!</button>
+	<button class='btn btn-danger delete'><i class="fa fa-trash"></i></button>
+	<button class='btn btn-default edit'><i class="fa fa-pencil"></i></button>
 	<p><%= board.escape('title') %></p>
-	<p><%= board.escape('description') %></p>
+	<div class='board-image-previews'></div>
+	<button class='follow-board-item btn btn-default'><%= followMsg %></button>
 </div>
-<button class='follow-board-item btn btn-default'><%= followMsg %></button>
+
