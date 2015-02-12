@@ -9,11 +9,8 @@
 	margin-right: 10px;
 }
 
-.board-item-wrapper .follow-board-item {
-	width: 100%;
-}
-
 .boards-item {
+	float: left;
 	padding: 10px;
 	width: 237px;
 	height: 300px;
@@ -49,5 +46,13 @@
 	width: 217px;
 	height: 215px;
 	margin-bottom: 2px;
-	background-color: blue;
+	background-color: #fff;
+}
+
+.board-image-previews img {
+	border-radius: 5px;
+}
+
+.follow-board-item {
+	width: 100%;
 }

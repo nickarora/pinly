@@ -37,6 +37,14 @@ class User < ActiveRecord::Base
 
   has_many :notifications, dependent: :destroy
 
+  has_many :boardpins,
+           through: :boards,
+           source: :boardpins
+
+  has_many :pins,
+           through: :boardpins,
+           source: :pin
+
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, password)

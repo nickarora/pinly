@@ -73,7 +73,41 @@ Pinly.Views.BoardsItem = Backbone.CompositeView.extend({
 		  followMsg: this.getFollowMsg()
 		});
 		this.$el.html(renderedContent);
+		this.attachImages();
+		this.renderPackery();
+
 		return this;
+	},
+
+	attachImages: function(){
+		var first = true;
+		this.model.pins().each(function(pin){
+			var imgLoc = pin.get('cloudinary_id');
+			if (!first){
+				var $img = $.cloudinary.image(imgLoc, { width: 69, height: 105, crop: 'fill'});
+			} else {
+				var $img = $.cloudinary.image(imgLoc, { width: 217, height: 105, crop: 'fill'});
+			}
+			this.$('.board-image-previews').append($img);
+			first = false;
+		}, this);
+	},
+
+	renderPackery: function(){
+		var $container = this.$('.board-image-previews');
+		if ( $container.has('img') ){
+			$container.packery({
+			  itemSelector: 'img',
+			  gutter: 5
+			});
+
+			$container.imagesLoaded( function() {
+	  		$container.packery({
+				  itemSelector: 'img',
+				  gutter: 5
+				});
+			});
+		}
 	},
 
 	getFollowMsg: function(){

@@ -1,18 +1,34 @@
 <div class='user-header'>
+	<div class='avatar'></div>
 	<div class='user-controls-wrapper'>
 		<div class="user-controls">
 			<% if (Pinly.CURRENT_USER.username == user.escape('username')) { %>
 				<button class='btn btn-danger edit-profile'>Edit Profie</button>
 				<button class='btn btn-danger sign-out'>Sign Out</button>
 			<% } %>
+			<div class='pop-out-name'><div class="mini-avatar"></div><div class='user-controls-name'><%= user.escape('fname') %> <%= user.escape('lname') %></div></div>
 		</div>
 	</div>
+	<div class='user-controls-placeholder'></div>
 	<div class="user-profile">
-		<div class='avatar'></div>
 		<h3> <%= user.escape('fname') %> <%= user.escape('lname') %> </h3>
 		<p>  <%= user.escape('description') %> </p>
 	</div>
 	<div class="user-stats">
+		<div class='row'>
+			<div class='col-xs-offset-1 col-xs-2'>BOARDS</div>
+			<div class='col-xs-2'>PINS</div>
+			<div class='col-xs-2'>LIKES</div>
+			<div class='col-xs-2'>FOLLOWERS</div>
+			<div class='col-xs-2'>FOLLOWING</div>
+		</div>
+		<div class='row'>
+			<div class='col-xs-offset-1 col-xs-2'><%= user.boardCount %></div>
+			<div class='col-xs-2'><%= user.pinCount %></div>
+			<div class='col-xs-2'><%= user.likeCount %></div>
+			<div class='col-xs-2'><%= user.followerCount %></div>
+			<div class='col-xs-2'><%= user.followedCount %></div>
+		</div>
 	</div>
 </div>
 

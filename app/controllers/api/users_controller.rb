@@ -3,11 +3,16 @@ module Api
 
     def show
     	@user = User
-              .includes(:boards, :follows)
+              .includes(:boards, :boardpins, :likes, :followed_boards, :follows)
               .find(params[:id])
-    	@boards = @user.boards
-      @follows = @user.follows
-      
+    	
+      @boards = @user.boards
+      @board_count = @user.boards.count
+      @pin_count = @user.boardpins.count
+      @like_count = @user.likes.count
+      @follower_count = @user.follows.count
+      @followed_count = @user.followed_boards.count
+
       render :show
     end
 

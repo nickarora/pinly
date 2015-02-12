@@ -15,7 +15,20 @@ Pinly.Views.UsersShow = Backbone.CompositeView.extend({
 		this.listenTo(this.model.boards(), 'add', this.addBoard);
 		this.listenTo(this.model.boards(), 'remove', this.removeBoard);
 
+		var that = this;
 		$(window).on("resize", this.updateCSS.bind(this));
+		$(window).on('scroll', function() {
+    	var y_scroll_pos = window.pageYOffset;
+    	var scroll_pos_test = 208;
+
+	    if(y_scroll_pos > scroll_pos_test) {
+	      that.$('.pop-out-name').show( "drop", 150 );
+	      that.$('.user-controls-wrapper').css('border-bottom', '2px solid #aaa')
+	    } else {
+	    	that.$('.pop-out-name').hide( "drop", 150 );
+	    	that.$('.user-controls-wrapper').css('border-bottom', '1px solid #e7e7e7')
+	    }
+		});
 
 		this.model.boards().each(function(board){
 			this.addBoard(board);
@@ -24,6 +37,10 @@ Pinly.Views.UsersShow = Backbone.CompositeView.extend({
 		this.avatarSettings = { radius: "max", 
 														width: 64, height: 64, 
 														crop: "thumb", gravity: "face" };
+
+		this.miniAvatarSettings = { radius: "max", 
+																width: 32, height: 32, 
+																crop: "thumb", gravity: "face" };
 
 		// required for upload to cloudinary
 		$.cloudinary.config({ cloud_name: 'pinly', api_key: '938513664846214'});
@@ -89,7 +106,9 @@ Pinly.Views.UsersShow = Backbone.CompositeView.extend({
 		var avatar = this.model.get('cloudinary_id');
 		if (avatar){
 			var $img = $.cloudinary.image(avatar, this.avatarSettings);
+			var $miniImg = $.cloudinary.image(avatar, this.miniAvatarSettings);
 			this.$('.avatar').html($img);
+			this.$('.mini-avatar').html($miniImg);
 		}	
 	},
 
@@ -99,10 +118,10 @@ Pinly.Views.UsersShow = Backbone.CompositeView.extend({
 		if (vpWidth >= 740) {
 			if (!options.preventAnimate) {
 				this.$('.user-controls').animate( { width: this.getWidth() } , { duration:500, queue: false} );	
-				this.$('.boards-list').animate( { width: this.getWidth() } , { duration:500, queue: false} );	
+				this.$('.boards-list').animate( { width: this.getWidth() + 20} , { duration:500, queue: false} );	
 			} else {
 				this.$('.user-controls').css('width', this.getWidth());
-				this.$('.boards-list').css('width', this.getWidth());
+				this.$('.boards-list').css('width', this.getWidth() + 20);
 			}
 		}
 	},

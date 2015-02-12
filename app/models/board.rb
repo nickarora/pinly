@@ -22,6 +22,9 @@ class Board < ActiveRecord::Base
 	has_many :followers, 
 					 through: :follows,
 					 source: :user
-	
 
+	has_many :likes,
+					 through: :boardpins,
+					 source: :likes
+	
 end
