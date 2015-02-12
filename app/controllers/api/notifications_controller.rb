@@ -5,13 +5,7 @@ module Api
       @notification = Notification.new(notification_params)
       
       if @notification.save
-        puts "-----------Debugging Heroku---------"
-        puts @notification
-        puts @notification.receiver
-        puts @notification.id
         ch = "pinly-channel-#{@notification.receiver.id}"
-        puts ch
-        puts "-------------------------------------"
         Pusher[ch].trigger('notif-push', {})
         render json: @notification
       else
