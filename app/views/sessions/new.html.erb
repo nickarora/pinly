@@ -23,10 +23,19 @@
     </div>
 
     <div class="form-group">
-      <button name="submit" class="btn btn-primary">Log In</button>
+      <button name="submit" class="btn btn-default">Log In</button>
     </div>
   </form>
-  <%= link_to "Sign up", new_user_url %>
+
+  <form class="guest-login" action="<%= session_url %>" method="post">
+    <input type="hidden" name="authenticity_token"
+    value="<%=form_authenticity_token%>" >
+    <input type="hidden" name="session[username]" value ="zackmorris">
+    <input type="hidden" name="session[password]" value="password">
+    <button name='submit' class='btn btn-default'>Guest Tour</button>
+  </form>
+
+  <%= link_to "Sign up", new_user_url, class: 'btn btn-default' %>
 </div>
 
 <div class='pinly-preview col-xs-offset-2 col-xs-8'><%= image_tag 'pinly.png', class: 'img-responsive' %></div>
