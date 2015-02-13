@@ -1,0 +1,33 @@
+.loggedout {
+	background-color: #2274ab;
+	background-image: image-url("pinly_splash.jpg");
+	background-size:   cover;       
+  background-repeat: no-repeat;
+  background-position: center center; 
+}
+
+.login-container {
+	position: fixed;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: rgba(0,0,0, 0.5);
+	border-radius: 10px;
+	color: #fff;
+	z-index: 10;
+}
+
+.login-container a {
+	color: #eee;
+}
+
+.pinly-preview {
+	position: fixed;
+	background-color: none;
+	bottom: 0;
+	z-index: 1;
+}
+
+#particles-js{
+  height:100%;
+  width:100%;
+}

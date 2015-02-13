@@ -23,6 +23,7 @@
 //= require jquery.dotdotdot.min
 //= require jquery.token-field
 
+//= require particles.min
 //= require pusher.min
 //= require masonry.pkgd.min
 //= require packery.pkgd.min
