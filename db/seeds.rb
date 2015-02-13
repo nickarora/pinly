@@ -1,10 +1,11 @@
 User.create!([
-  {session_token: "bvE7d-5OqwSf2ROn16P3KQ", username: "zackmorris", fname: "Zack", lname: "Morris", password: "password", password_digest: "$2a$10$mU7UT3DiCFvegMPFPNxOeO2BbYFBbAyQpmrY5OpftFbPWyLzEkz7i", description: "I'm a charming schemer.  My hobbies include breaking the fourth wall and addressing the audience, temporarily freezing time by yelling \"Time out!\", and using a giant phone.  My amusing schemes often backfire.", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423798170/lpniexpssdyrzb9mfein.jpg", cloudinary_id: "lpniexpssdyrzb9mfein"},
-  {session_token: "MmH4WKQ31w9aeKyRi_hakw", username: "kellykapowski", fname: "Kelly", lname: "Kapowski", password: "password", password_digest: "$2a$10$W/dPP5JtIEvTgFr04iF5jeln8vscH8N602C9AweAWuLz7FgVhnaEm", description: "I'm head cheerleader and captain of the volleyball, swim, and softball teams!  I love my boyfriend Zack even though I cheated on him once with a guy named Jeff!", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423798518/ombrmlwdbf3plg8unajh.jpg", cloudinary_id: "ombrmlwdbf3plg8unajh"},
-  {session_token: "Zu70ckvQ_Eo79va_0Q1r9g", username: "jessiespano", fname: "Jessie", lname: "Spano", password: "password", password_digest: "$2a$10$.y/GEGsQrAGMpC8rvVqJt.GHwMi0T/Tc2dXlEI9g84fPc2g.HuXba", description: "I'm a lifelong friend of Zack, Screech, Lisa and Kelly and, without a doubt, the smartest person in the group.", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423832584/hflsoccmrsypdeqktuiy.jpg", cloudinary_id: "hflsoccmrsypdeqktuiy"},
+  {session_token: "8mbbG-bv2ndvTc88SG4X4A", username: "zackmorris", fname: "Zack", lname: "Morris", password: "password", password_digest: "$2a$10$mU7UT3DiCFvegMPFPNxOeO2BbYFBbAyQpmrY5OpftFbPWyLzEkz7i", description: "I'm a charming schemer.  My hobbies include breaking the fourth wall and addressing the audience, temporarily freezing time by yelling \"Time out!\", and using a giant phone.  My amusing schemes often backfire.", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423798170/lpniexpssdyrzb9mfein.jpg", cloudinary_id: "lpniexpssdyrzb9mfein"},
+  {session_token: "IUCnqEdT46AunlGkGxHrPA", username: "kellykapowski", fname: "Kelly", lname: "Kapowski", password: "password", password_digest: "$2a$10$W/dPP5JtIEvTgFr04iF5jeln8vscH8N602C9AweAWuLz7FgVhnaEm", description: "I'm head cheerleader and captain of the volleyball, swim, and softball teams!  I love my boyfriend Zack even though I cheated on him once with a guy named Jeff!", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423798518/ombrmlwdbf3plg8unajh.jpg", cloudinary_id: "ombrmlwdbf3plg8unajh"},
+  {session_token: "sMlpQlOtNZNLLUccaXSamw", username: "jessiespano", fname: "Jessie", lname: "Spano", password: "password", password_digest: "$2a$10$.y/GEGsQrAGMpC8rvVqJt.GHwMi0T/Tc2dXlEI9g84fPc2g.HuXba", description: "I'm a lifelong friend of Zack, Screech, Lisa and Kelly and, without a doubt, the smartest person in the group.", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423832584/hflsoccmrsypdeqktuiy.jpg", cloudinary_id: "hflsoccmrsypdeqktuiy"},
   {session_token: "lf2s1VaB3hOKLW4_osihcw", username: "screech", fname: "Screech", lname: "Powers", password: "password", password_digest: "$2a$10$0w3yzE8DO1V3baQU7MriK.T/QhWySlie0FLkiAxaqxRu3O/fUtk6i", description: "I'm a geeky, generally good-natured goofball that is comfortable with my own nerdiness. Everyone teases me, but I don't think they mean it. Underneath the jokes, they do care for me!  Or at least that's what I tell myself....", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423834643/ytdenszromdeaenerxi8.jpg", cloudinary_id: "ytdenszromdeaenerxi8"},
-  {session_token: "0rdz9B94Fna122tgoER6pw", username: "acslater", fname: "AC", lname: "Slater", password: "password", password_digest: "$2a$10$6wBkwz7scqDWFR9RJPej8ONl2iV.fUp6J5toJIAnfeDQBiMuam4I2", description: "Army brat, star athlete, macho man, and Best friends with Zack.  Need I say more, chicas?", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423832639/m3ypavuuccb9pumlw0s7.jpg", cloudinary_id: "m3ypavuuccb9pumlw0s7"},
-  {session_token: "yXICrQlCJBKaT7cdZPuucQ", username: "mrbelding", fname: "Richard", lname: "Belding", password: "password", password_digest: "$2a$10$7eiryNI52je9l01KUPf7CefXuWYEaibe.3RbNqx8vjU8U.ufBxZhG", description: "Hey, hey, hey, what is going on here?", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423542388/csnjhadzhi8d3sf8srh4.jpg", cloudinary_id: "csnjhadzhi8d3sf8srh4"}
+  {session_token: "IPEho6_lxdhb-TiVWIpIlA", username: "acslater", fname: "AC", lname: "Slater", password: "password", password_digest: "$2a$10$6wBkwz7scqDWFR9RJPej8ONl2iV.fUp6J5toJIAnfeDQBiMuam4I2", description: "Army brat, star athlete, macho man, and Best friends with Zack.  Need I say more, chicas?", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423832639/m3ypavuuccb9pumlw0s7.jpg", cloudinary_id: "m3ypavuuccb9pumlw0s7"},
+  {session_token: "yXICrQlCJBKaT7cdZPuucQ", username: "mrbelding", fname: "Richard", lname: "Belding", password: "password", password_digest: "$2a$10$7eiryNI52je9l01KUPf7CefXuWYEaibe.3RbNqx8vjU8U.ufBxZhG", description: "Hey, hey, hey, what is going on here?", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423542388/csnjhadzhi8d3sf8srh4.jpg", cloudinary_id: "csnjhadzhi8d3sf8srh4"},
+  {session_token: "M4WnqEaTzCyppnT7iT-trg", username: "cj", fname: "CJ", lname: "Avilla", password: "password", password_digest: "$2a$10$PnY9S6pnusR6lCpnUrDOGe9ze4hdf/zmj.B6PgQUY5iPvquHq.d4O", description: "I love App Academy", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423852568/bkf89knixbhwea6tgzm1.jpg", cloudinary_id: "bkf89knixbhwea6tgzm1"}
 ])
 
 Board.create!([
@@ -14,7 +15,9 @@ Board.create!([
   {title: "Light Reading Material", description: "Just a few things I've been reading in my spare time!", user_id: 3},
   {title: "Hair Care", description: "God I love my doo!", user_id: 1},
   {title: "Cheer Leading", description: "I am so like excited about this board!", user_id: 2},
-  {title: "Insects", description: "I have an ant and fly farm as well as a worm collection!  God I love insects.", user_id: 4}
+  {title: "Insects", description: "I have an ant and fly farm as well as a worm collection!  God I love insects.", user_id: 4},
+  {title: "Kelly Kaposwki", description: "The love of my life?", user_id: 1},
+  {title: "Zack Attack", description: "Only the greatest band that ever existed!", user_id: 1}
 ])
 
 Pin.create!([
@@ -52,7 +55,17 @@ Pin.create!([
   {url: "http://www.buzzfeed.com/javiermoreno/best-haircut-ever#.lb2aW0xjX", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423836482/qwjkemrbq2oxx2yc5azm.jpg", cloudinary_id: "qwjkemrbq2oxx2yc5azm"},
   {url: "http://www.bloglovin.com/blogs/absolute-best-photography-posts-2958690/photo-2110744199/link=aHR0cCUzQSUyRiUyRnBob3RvZ3JhcGh5LjEwMDBub3Rlcy5jb20lMkZwb3N0JTJGNzEzMjAyNTkzNDA=", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423836653/roawpyfhfhzhqqp8x24z.jpg", cloudinary_id: "roawpyfhfhzhqqp8x24z"},
   {url: "http://www.bloglovin.com/blogs/absolute-best-photography-posts-2958690/photo-2110744199/link=aHR0cCUzQSUyRiUyRnBob3RvZ3JhcGh5LjEwMDBub3Rlcy5jb20lMkZwb3N0JTJGNzEzMjAyNTkzNDA=", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423836678/c9p5zjxlhlnk55in7yzm.jpg", cloudinary_id: "c9p5zjxlhlnk55in7yzm"},
-  {url: "http://www.buzzfeed.com/theliltingbanshee/12-quotes-that-make-you-wish-fscott-fitzgerald-wo-cf23#.qhvp9gAYN", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423836988/tzgrncsl9d5j3fzy1epb.jpg", cloudinary_id: "tzgrncsl9d5j3fzy1epb"}
+  {url: "http://www.buzzfeed.com/theliltingbanshee/12-quotes-that-make-you-wish-fscott-fitzgerald-wo-cf23#.qhvp9gAYN", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423836988/tzgrncsl9d5j3fzy1epb.jpg", cloudinary_id: "tzgrncsl9d5j3fzy1epb"},
+  {url: "http://www.popsugar.com/fashion/Kelly-Kapowski-Saved-Bell-Style-26947163#photo-26947336", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423851408/yn6gaymi4lobuuwmjppl.jpg", cloudinary_id: "yn6gaymi4lobuuwmjppl"},
+  {url: "http://www.ranker.com/list/45-of-your-childhood-crushes-_then-and-now_/brian-gilmore", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423851532/bzpmu3t73zsljazraeyz.jpg", cloudinary_id: "bzpmu3t73zsljazraeyz"},
+  {url: "http://www.popsugar.com/celebrity/Kelly-Kapowski-Pictures-33674710#photo-33674819", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423851632/q2bs4kryftj2f2hbonr8.jpg", cloudinary_id: "q2bs4kryftj2f2hbonr8"},
+  {url: "http://www.buzzfeed.com/briangalindo/ranking-the-13-most-important-celeb-ponytails-of-the-90s", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423851686/ppoyxyfcajkne5vojs6j.jpg", cloudinary_id: "ppoyxyfcajkne5vojs6j"},
+  {url: "http://www.refinery29.com/2014/03/63772/best-fictional-bands#slide", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423852080/fvon4xyj6j8n8xjazjlj.jpg", cloudinary_id: "fvon4xyj6j8n8xjazjlj"},
+  {url: "http://www.refinery29.com/2014/03/63772/best-fictional-bands#slide", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423852184/vszgoqkpzyiotqw5juyc.jpg", cloudinary_id: "vszgoqkpzyiotqw5juyc"},
+  {url: "http://www.refinery29.com/2014/03/63772/best-fictional-bands#slide", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423852235/nlsz3omwc7xsknvzqg1h.jpg", cloudinary_id: "nlsz3omwc7xsknvzqg1h"},
+  {url: "http://www.refinery29.com/2014/03/63772/best-fictional-bands#slide", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423852274/jq278d8jryowocydqbio.jpg", cloudinary_id: "jq278d8jryowocydqbio"},
+  {url: "http://www.refinery29.com/2014/03/63772/best-fictional-bands#slide", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423852309/gigvxkkl2xoqpk3p16q4.jpg", cloudinary_id: "gigvxkkl2xoqpk3p16q4"},
+  {url: "http://www.refinery29.com/2014/03/63772/best-fictional-bands#slide", image_url: "http://res.cloudinary.com/pinly/image/upload/v1423852348/yj6nblzz31b8vxdbnohp.jpg", cloudinary_id: "yj6nblzz31b8vxdbnohp"}
 ])
 
 Boardpin.create!([
@@ -87,7 +100,30 @@ Boardpin.create!([
   {board_id: 3, pin_id: 31, description: "You think a preppie could pull that off?"},
   {board_id: 5, pin_id: 32, description: "For the record, I was pulling off the undercut way before it was cool."},
   {board_id: 7, pin_id: 34, description: "Just paint me blue and call me a Smurf!"},
-  {board_id: 4, pin_id: 35, description: "Why can't Fitzgerald write ME a love letter?"}
+  {board_id: 4, pin_id: 35, description: "Why can't Fitzgerald write ME a love letter?"},
+  {board_id: 8, pin_id: 36, description: "My sweet baby honey"},
+  {board_id: 8, pin_id: 37, description: "Snookums!"},
+  {board_id: 8, pin_id: 38, description: "Kel Kel Baby"},
+  {board_id: 8, pin_id: 39, description: "My sweetie pie"},
+  {board_id: 9, pin_id: 40, description: "Feeling the groove flow through my body.  Gives me shivers just thinking about it!"},
+  {board_id: 9, pin_id: 41, description: "Just a candid shot of the band-members hanging out! Exclusive behind the scenes material!"},
+  {board_id: 9, pin_id: 42, description: "Doesn't get much better than this!"},
+  {board_id: 9, pin_id: 43, description: "The early years.  Before I could afford a guitar."},
+  {board_id: 9, pin_id: 44, description: "Today's musicians doesn't understand the importance of image to music."},
+  {board_id: 9, pin_id: 45, description: "Worn by one of our many groupies."}
+])
+Comment.create!([
+  {boardpin_id: 32, user_id: 2, body: "Maybe he heard about your caffeine pill meltdown?"},
+  {boardpin_id: 25, user_id: 2, body: "Remind me to leave you for AC"},
+  {boardpin_id: 24, user_id: 2, body: "Um...you do realize these posts are public right?"},
+  {boardpin_id: 28, user_id: 2, body: "You and your \"words\" and \"reading\" Jessie!  We need to get you to try out for the cheer leading squad!"},
+  {boardpin_id: 31, user_id: 1, body: "Buddy! You're doing that thing where you make no sense again..."},
+  {boardpin_id: 32, user_id: 1, body: "oh snap.."},
+  {boardpin_id: 29, user_id: 1, body: "Your obsession with preppies is getting out of control"},
+  {boardpin_id: 30, user_id: 3, body: "Maybe you should stop thinking about your hair and start thinking about the fact that you have the ability to STOP time..."},
+  {boardpin_id: 29, user_id: 5, body: "You would say that preppie"},
+  {boardpin_id: 24, user_id: 5, body: "and?"},
+  {boardpin_id: 31, user_id: 5, body: "Classic Screech"}
 ])
 Follow.create!([
   {user_id: 1, board_id: 1},
@@ -98,6 +134,39 @@ Follow.create!([
   {user_id: 1, board_id: 5},
   {user_id: 2, board_id: 6},
   {user_id: 1, board_id: 6},
-  {user_id: 1, board_id: 7}
+  {user_id: 1, board_id: 7},
+  {user_id: 2, board_id: 1},
+  {user_id: 2, board_id: 5},
+  {user_id: 2, board_id: 4},
+  {user_id: 2, board_id: 7},
+  {user_id: 2, board_id: 3},
+  {user_id: 3, board_id: 1},
+  {user_id: 3, board_id: 5},
+  {user_id: 3, board_id: 2},
+  {user_id: 3, board_id: 6},
+  {user_id: 3, board_id: 4},
+  {user_id: 3, board_id: 7},
+  {user_id: 3, board_id: 3},
+  {user_id: 5, board_id: 1},
+  {user_id: 5, board_id: 5},
+  {user_id: 5, board_id: 2},
+  {user_id: 5, board_id: 6},
+  {user_id: 5, board_id: 4},
+  {user_id: 5, board_id: 7},
+  {user_id: 5, board_id: 3},
+  {user_id: 7, board_id: 1},
+  {user_id: 7, board_id: 5},
+  {user_id: 7, board_id: 8},
+  {user_id: 7, board_id: 9}
+])
+Like.create!([
+  {user_id: 2, boardpin_id: 30}
+])
+Notification.create!([
+  {status: "unviewed", message: "Kelly Kapowski commented on your post!", boardpin_id: 25, user_id: 2, receiver_id: 1},
+  {status: "unviewed", message: "Kelly Kapowski liked your post!", boardpin_id: 30, user_id: 2, receiver_id: 1},
+  {status: "unviewed", message: "Zack Morris commented on your post!", boardpin_id: 31, user_id: 1, receiver_id: 4},
+  {status: "unviewed", message: "Jessie Spano commented on your post!", boardpin_id: 30, user_id: 3, receiver_id: 1},
+  {status: "unviewed", message: "AC Slater commented on your post!", boardpin_id: 31, user_id: 5, receiver_id: 4}
 ])
 
