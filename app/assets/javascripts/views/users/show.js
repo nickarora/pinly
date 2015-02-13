@@ -118,8 +118,10 @@ Pinly.Views.UsersShow = Backbone.CompositeView.extend({
 		if (vpWidth >= 740) {
 			if (!options.preventAnimate) {
 				this.$('.user-controls').animate( { width: this.getWidth() } , { duration:500, queue: false} );	
+				this.$('.user-profile').animate( { width: this.getWidth() } , { duration:500, queue: false} );	
 				this.$('.boards-list').animate( { width: this.getWidth() + 20} , { duration:500, queue: false} );	
 			} else {
+				this.$('.user-profile').css('width', this.getWidth());
 				this.$('.user-controls').css('width', this.getWidth());
 				this.$('.boards-list').css('width', this.getWidth() + 20);
 			}
