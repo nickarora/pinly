@@ -2,7 +2,7 @@
 
 [Completed Project][sitelink]
 
-[sitelink]: https://www.pinly.co/
+[sitelink]: http://www.pinly.co/
 
 ## Minimum Viable Product
 Pinly is a clone of Pinterest built on Rails and Backbone. Users can:
