@@ -1,22 +1,22 @@
 # Pinly
 
-[Heroku link][heroku]
+[Completed Project][sitelink]
 
-[heroku]: https://pinly.herokuapp.com/
+[sitelink]: https://www.pinly.co/
 
 ## Minimum Viable Product
 Pinly is a clone of Pinterest built on Rails and Backbone. Users can:
 
-- [ ] Create accounts
-- [ ] Create sessions (log in)
-- [ ] Create boards (collections of visual bookmarks)
-- [ ] Create pins (visual bookmarks)
-- [ ] View boards and pins (your own and made by others)
-- [ ] Subscribe/Unsubscribe to boards ("follow")
-- [ ] View a feed of pins drawn from subscribed boards
-- [ ] Re-pin someone else's pin to a personal board
-- [ ] "Like" a pin
-- [ ] Search for pins through key words
+- [X] Create accounts
+- [X] Create sessions (log in)
+- [X] Create boards (collections of visual bookmarks)
+- [X] Create pins (visual bookmarks)
+- [X] View boards and pins (your own and made by others)
+- [X] Subscribe/Unsubscribe to boards ("follow")
+- [X] View a feed of pins drawn from subscribed boards
+- [X] Re-pin someone else's pin to a personal board
+- [X] "Like" a pin
+- [X] Search for pins through key words
 
 ## Design Docs
 * [View Wireframes][views]
@@ -43,7 +43,7 @@ Pinly is a clone of Pinterest built on Rails and Backbone. Users can:
 
 * Deploy to Heroku and ensure that everything continues to work.
 
-* Integrate `filepicker` to allow image uploads; images will be used on individual pins and for user avatars.  Images should be uploaded to Amazon S3 server.  Test in rails view to ensure proper implementation.  Redeploy to Heroku.  This will be the most challenging aspect of the first two days.
+* Integrate image uploads; images will be used on individual pins and for user avatars.  Images should be uploaded to Amazon S3 server or a similar service.  Test in rails view to ensure proper implementation.  Redeploy to Heroku.
 
 [Details][phase-one]
 
@@ -86,8 +86,6 @@ Pinly is a clone of Pinterest built on Rails and Backbone. Users can:
 
 * Create hover "Pin" button which appears over other users' pins
 
-* Create Form in which user can input a website address, images are scraped, and the user is asked which he or she would like to pin.  ** This seems tricky and I anticipate it will take some time ** 
-
 * Ensure Forms have appropriate submit, cancel buttons -- as well as cancel through "Blur"
 
 [Details][phase-three]
@@ -114,8 +112,6 @@ Pinly is a clone of Pinterest built on Rails and Backbone. Users can:
 
 * the user's feed should be populated with the search results
 
-* visually the search bar should parse each word individually, color coat it, and add a cancel button -- much like the real pinterest
-
 [Details][phase-five]
 
 ### Phase 6: More Styling and Seed Material
@@ -126,21 +122,13 @@ Pinly is a clone of Pinterest built on Rails and Backbone. Users can:
 
 * Unique Seed Data
 
-* This is to ensure I don't go too far without a minimum viable product
-
-### High Priority Bonus Features
-- [ ] friendships and private messages, notifications
-	* create a UserFriendship model 
-	* generate user_friendship controller to create new pending user_friendships
-	* user can accept (change state to "accepted") or decline (destroy userfriendship)
-	* users will be able to send messages directly to other users if user_friendship.state == "accepted"
-
-- [ ] Ability to select geographic location when creating a pin; map view for boards with pins representing the locations
-
-### Low Priority Bonus Features
-- [ ] dragable boards on your own user page
-- [ ] Custom urls for users and boards
-
+### Bonus Features
+- [X] Push Notifications Across Sessions
+- [X] Infinite, Dynamic Scroll
+- [X] Scrape websites and Pin by entering URL
+- [X] User Tutorials
+- [X] Guest Log-in
+- [X] Visually the search bar should parse each word individually, color coat it, and add a cancel button -- much like the real pinterest
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
