@@ -25,6 +25,7 @@
 
 //= require particles.min
 //= require pusher.min
+//= require shepherd.min
 //= require masonry.pkgd.min
 //= require packery.pkgd.min
 //= require imagesloaded.pkgd.min

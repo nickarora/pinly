@@ -7,6 +7,7 @@ window.Pinly = {
     
     var channelName = 'pinly-channel-' + Pinly.CURRENT_USER.id
     Pinly.channel = pusher.subscribe(channelName);
+    Pinly.initalTourComplete = false;
   	
     new Pinly.Routers.Router({
   		$rootEl: $("#content"),

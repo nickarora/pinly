@@ -17,7 +17,6 @@ Pinly.Views.Feed = Backbone.CompositeView.extend({
 
 		// required for upload to cloudinary
 		$.cloudinary.config({ cloud_name: 'pinly', api_key: '938513664846214'});
-
 	},
 
 	scrollHandler: function(event){

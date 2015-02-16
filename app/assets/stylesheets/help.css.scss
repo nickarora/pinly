@@ -1,0 +1,26 @@
+.shepherd-step {
+
+	z-index: 5000 !important;
+
+	.shepherd-content {
+		width: 300px;
+		text-align: center;
+		background-color: rgba(13,79,127,.9) !important;
+		color: #fff !important;
+	}
+
+	header {
+		background-color: #cb2026 !important;
+		color: #fff;
+	}
+
+	.shepherd-button-example-primary {
+		background-color: #cb2026 !important;
+	}
+
+	.shepherd-button-secondary {
+		background-color: #eee !important;
+		color: #333 !important;
+	}
+
+}

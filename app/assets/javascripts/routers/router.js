@@ -76,6 +76,11 @@ Pinly.Routers.Router = Backbone.Router.extend({
 		return create;
 	},
 
+	help: function(){
+		var help = new Pinly.Views.HelpIcon();
+		return help;
+	},
+
 	_swapView: function(view){
 		this._currentView && this._currentView.remove();
 		this.header().remove();
@@ -85,5 +90,11 @@ Pinly.Routers.Router = Backbone.Router.extend({
 		this.$headerEl.html(this.header().render().$el);
 		this.$rootEl.html(view.render().$el);
 		this.$rootEl.append(this.create().render().$el);
+		this.$rootEl.append(this.help().render().$el);
+
+		if (!Pinly.initialTourComplete){
+			Pinly.initialTourComplete = true;
+			$( ".help" ).trigger( "click" );
+		}
 	}
 });
