@@ -119,7 +119,9 @@ Pinly.Views.PinCardShow = Backbone.CompositeView.extend({
 		this.renderImage();
 		this.renderAvatar();
 		this.updateLikeIconColor();
-		this.$(".pin-description").dotdotdot();
+
+		// great script but incompatible with firefox!
+		// this.$(".pin-description").dotdotdot();
 
 		return this;
 	},
