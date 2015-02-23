@@ -1,8 +1,10 @@
 # Pinly
 
 [Live Demo][sitelink]
-
 [sitelink]: http://www.pinly.co/
+
+![preview]
+[preview]:	./docs/preview.png
 
 ## Description
 Pinly is a clone of the popular social media website, Pinterest built in Backbone on Rails.  Users can create pins by uploading images, scraping URLs for images, or repinning from another user's board.  The site features full social media functionality, including comments, likes, follows, and push notifications.  In addition, users can search pin descriptions to find pins that match their criteria.
