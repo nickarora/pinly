@@ -64,8 +64,8 @@ Pinly.Views.Feed = Backbone.CompositeView.extend({
 	fadeInCards: function(){
 		var that = this;
 		$('.pin-child').imagesLoaded().progress(function( imgLoad, image){		
-			var $pin = $(image.img).parents('.pin-child');
-			// $pin.find('.card').animate({opacity: 1});
+			// var $pin = $(image.img).parents('.pin-child');
+			// $pin.find('.card').animate({opacity: 1}, 400);	
 			that.renderMasonry();
 		});
 	},
