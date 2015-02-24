@@ -82,7 +82,7 @@ Pinly.Views.Feed = Backbone.CompositeView.extend({
 		this.$el.html(renderedContent);
 		this.attachSubviews();
 		this.renderMasonry();
-		this.fadeInCards();
+		// this.fadeInCards();
 		this.$(".pin-description").dotdotdot();
 		return this;
 	},
