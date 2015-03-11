@@ -119,7 +119,7 @@ Pinly.Views.PinCardShow = Backbone.CompositeView.extend({
 		this.renderImage();
 		this.renderAvatar();
 		this.updateLikeIconColor();
-
+		
 		return this;
 	},
 

@@ -65,8 +65,8 @@ Pinly.Views.Feed = Backbone.CompositeView.extend({
 		var that = this;
 
 		// this.$('.feed-list').imagesLoaded( function() {
-  // 		that.$('.card').animate({opacity: 1});
-  // 		that.renderMasonry();
+  	// 		that.$('.card').animate({opacity: 1});
+  	// 		that.renderMasonry();
 		// });
 
 		$('.pin-child').imagesLoaded().progress(function( imgLoad, image){		
