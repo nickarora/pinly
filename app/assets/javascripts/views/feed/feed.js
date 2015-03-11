@@ -6,7 +6,7 @@ Pinly.Views.Feed = Backbone.CompositeView.extend({
 	initialize: function(options){
 
 		this.collection.reset();
-		this.listenTo(this.collection, 'sync add', this.render);
+		this.listenTo(this.collection, 'sync', this.syncHandler);
 		this.listenTo(this.collection, 'add', this.addPin);
 		
 		// get more pages if need be
@@ -17,6 +17,12 @@ Pinly.Views.Feed = Backbone.CompositeView.extend({
 
 		// required for upload to cloudinary
 		$.cloudinary.config({ cloud_name: 'pinly', api_key: '938513664846214'});
+
+	},
+
+	syncHandler: function(){
+		this.fadeInCards();
+		this.render();
 	},
 
 	scrollHandler: function(event){
@@ -50,31 +56,25 @@ Pinly.Views.Feed = Backbone.CompositeView.extend({
 	},
 
 	renderMasonry: function(){
-		var $container = this.$('.feed-list');
-
+		var $container = $('.feed-list');
+			
 		$container.masonry({
 			columnWidth: 235,
 			"gutter": 15,
 			"isFitWidth": true,
 		  itemSelector: '.pin-child',
-		  transitionDuration: 0,
+		  transitionDuration: '.4s'
 		});
 	},
 
 	fadeInCards: function(){
 		var that = this;
 
-		// this.$('.feed-list').imagesLoaded( function() {
-  	// 		that.$('.card').animate({opacity: 1});
-  	// 		that.renderMasonry();
-		// });
+		var $container = this.$('.feed-list');
 
-		$('.pin-child').imagesLoaded().progress(function( imgLoad, image){		
-			var $pin = $(image.img).parents('.pin-child');
-			$pin.find('.card').animate({opacity: 1});	
+		$container.imagesLoaded(function(){
 			that.renderMasonry();
-		});
-		
+		})
 	},
 
 	render: function(){
@@ -83,7 +83,6 @@ Pinly.Views.Feed = Backbone.CompositeView.extend({
 		this.$el.html(renderedContent);
 		this.attachSubviews();
 		this.renderMasonry();
-		this.fadeInCards();
 		return this;
 	},
 
