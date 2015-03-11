@@ -20,9 +20,8 @@ Pinly.Views.Feed = Backbone.CompositeView.extend({
 
 	},
 
-	syncHandler: function(){
+	syncHandler: function(e){
 		this.fadeInCards();
-		this.render();
 	},
 
 	scrollHandler: function(event){
@@ -53,6 +52,8 @@ Pinly.Views.Feed = Backbone.CompositeView.extend({
     });
 
     this.addSubview('.feed-list', view);
+    this.attachSubview('.feed-list', view);
+    $('.feed-list').masonry('appended', view.$el);
 	},
 
 	renderMasonry: function(){
